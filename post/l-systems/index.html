@@ -1,0 +1,191 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>L-systems - Computer Graphics assignment @ Sorbonne Université - Hugo Thomas</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Hugo Thomas"><meta name=description content="One of my project reports"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.99.1 with theme even"><link rel=canonical href=https://thmhugo.github.io/post/l-systems/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.fc5d12e993641c1f469430cf0dc3baac8d60cced58d5b0961e160525381610ef.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="L-systems - Computer Graphics assignment @ Sorbonne Université"><meta property="og:description" content="One of my project reports"><meta property="og:type" content="article"><meta property="og:url" content="https://thmhugo.github.io/post/l-systems/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-04-10T00:00:00+00:00"><meta property="article:modified_time" content="2022-04-10T00:00:00+00:00"><meta itemprop=name content="L-systems - Computer Graphics assignment @ Sorbonne Université"><meta itemprop=description content="One of my project reports"><meta itemprop=datePublished content="2022-04-10T00:00:00+00:00"><meta itemprop=dateModified content="2022-04-10T00:00:00+00:00"><meta itemprop=wordCount content="1541"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="L-systems - Computer Graphics assignment @ Sorbonne Université"><meta name=twitter:description content="One of my project reports"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Even</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/cv.pdf><li class=mobile-menu-item>CV</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Even</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/cv.pdf>CV</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>L-systems - Computer Graphics assignment @ Sorbonne Université</h1><div class=post-meta><span class=post-time>04-10-2022</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li></li></ul></li></ul></li><li><a href=#l-systems>L-Systems</a><ul><li><ul><li></li></ul></li></ul></li><li><a href=#turtle>Turtle</a><ul><li><ul><li></li></ul></li></ul></li><li><a href=#more-realistic-l-systems>More realistic L-systems</a></li><li><a href=#developmental-models-of-herbaceous-plants>Developmental models of herbaceous plants</a><ul><li><ul><li><a href=#partial-l-systems>Partial L-systems</a></li><li><a href=#context-sensitive-l-systems>Context-sensitive L-systems</a></li></ul></li></ul></li><li><a href=#open-problems---miscellaneous>Open problems - Miscellaneous</a></li><li><a href=#app:ldef>L-systems definitions</a><ul><li><a href=#app:tri>Triangle</a></li><li><a href=#app:fuzzy>Fuzzy tree</a></li><li><a href=#app:fuzzy>Randomized tree</a></li></ul></li></ul></nav></div></div><div class=post-content><p><include src=../header.html></include></p><h4 id=foreword>Foreword:</h4><p>In this short report, I will make a quick review of L-systems, relying on the
+book The algorithmic beauty of plants [@TheAB], without talking about the code
+implementation. The theoretical tools have not changed since the release of the
+book, it fully covers the state-of-the-art. I will simply explain part of its
+content. Finally, I have carefully chosen to explain only the parts that are the
+most interesting to me.</p><h1 id=l-systems class=unnumbered>L-Systems</h1><p>This section presents the simplest class of L-systems, those which are
+deterministic and context-free, called D0L-systems. One could define
+L-systems as a formal way of defining developmental processes, that
+suits well to organic models, and especially plant-development models.
+More formally, an L-system $G$ is defined as a tuple
+$\langle V, \omega, P \rangle$, where $V$ is the alphabet of symbols,
+$\omega \in V^+$ is the axiom, and $P \subset V \times V^*$ is the set
+of production rules, also called rewriting rules: it takes a character
+$c \in V$ and returns a string $s \in V^*$. The axiom is the starting
+character of the L-system, that will fully determine the iteration
+process. Let $s_i$ be the result of the $i^{th}$ iteration, we define
+$s_0 = \omega$. An iteration consists of the transformation
+$s_i \rightarrow s_{i+1}$ defined by the successive transformations of
+the characters of $s_i$ according to the production set $P$.<br>For the sake of simplicity, if $x$ and $y$ are two string in $V^*$, then
+$xy$ is the concatenation of $x$ and $y$.</p><h4 id=example class=unnumbered>Example:</h4><p>Let $G_1 = \langle V, \omega, P \rangle$, where
+$V = {A,B}; \omega = A; P =
+{A\rightarrow AB, B\rightarrow BA}$. Then the iterations go as
+follows:</p><p>$$\begin{aligned}
+s_0 &= \omega = A \\\
+s_1 &= P(A) = AB \\\
+s_2 &= P(A)P(B) \\\
+&= ABBA \\\
+s_3 &= P(A)P(B)P(B)P(A) \\\
+&= ABBABAAB
+\end{aligned}$$</p><p>It almost fully describes an L-system, we now need to interpret the
+result of an iteration.</p><h1 id=turtle class=unnumbered>Turtle</h1><p>Turtle graphics, firstly defined by the Logo programming language
+[@Logo] is a descriptive way of defining computer drawings. We can hence
+consider an interpretation of some characters (not necessarily all of
+them) of the alphabet. This will make the turtle move on the screen, and
+hence draw. For example, $F$ moves forward a step $l$, $+$ turns
+clockwise the turtle of an angle $\delta$, and $-$ turns
+counterclockwise the turtle of an angle $\delta$.</p><h4 id=example-1>Example:</h4><p>If we let $l=1, \delta = 90$, and consider the sentence
+$FFF+FF+F+F-F-FF+FFF$, then the turtle graphics formalism yields the
+following, starting in $(0,0)$:</p><p>By combining the L-System formalism and the turtle graphics, one can
+easily generate fractal like patterns, thanks to the recursive structure
+of L-systems. ($n$ is the number of iterations)</p><div class=figure><img src=img/triangle.png alt="Matrix vector product Mtv"><p class=caption>A triangle</p></div><p>The above figures shows a fractal-like model where each pattern
+repeats itself, this comes from the recursive manner of defining an
+iteration.</p><h1 id=more-realistic-l-systems class=unnumbered>More realistic L-systems</h1><p>This definition of L-systems yields interesting and fractal-like
+results, but we need to add a branching possibility in order to obtain
+plant-like results. This is achieved by considering a stack of turtle
+<em>states</em> and its associated operations: $\texttt{Push}$ and
+$\texttt{Pop}$. Those two operations are usually represented by the
+characters $[$ and $]$ respectively. This enhancement yield results
+shown in Fig. <a href=#fig:fuzzy>[fig:fuzzy]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:fuzzy&rdquo;} and
+<a href=#fig:aglae>[fig:aglae]</a>{reference-type=&ldquo;ref&rdquo; reference=&ldquo;fig:aglae&rdquo;}.</p><div class=figure><img src=img/fuzzy.png alt=fuzzy><p class=caption>A fuzzy tree</p></div><p>The plant-like pattern appears directly, however, we will explore some
+enhancement techniques in order to make those more realistic. The issue
+that one faces with this kind of <em>very simple</em> L-system, is that the
+plant generated by a L-system is unique, and the artificial regularity
+is striking. To solve this problem, it is possible to randomize the
+turtle parameters, the L-system or both.</p><p>Randomizing only the turtle parameters has the effect of letting the
+underlying structure of the results unchanged, while randomizing the
+L-system itself probabilistically changes the structure, which has the
+effect of making the result more realistic. Combining the two options is
+in the end the preferable solution. Such a result is shown in Fig.
+<a href=#fig:randomized>[fig:randomized]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:randomized&rdquo;}.</p><div class=figure><img src=img/aglae.png alt=aglae><p class=caption>An aglae</p></div><p>The list of species being described by L-systems grammar is vastly
+increasing. Models have been made: cucumber growth [@cucumber],
+sunflower [@TheAB] (see Fig.
+<a href=#fig:sunflower>[fig:sunflower]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:sunflower&rdquo;}), barley [@barley], sorghum [@sorghum].</p><div class=fig-table-container><div class=figtbl><div><img src=img/r-tree-1.png alt=Snow></div><div><img src=img/r-tree-2.png alt=Forest></div><div><img src=img/r-tree-3.png alt=Mountains></div></div><p class=caption>Three iterations of an OL-System (a random tree)</p></div><h1 id=developmental-models-of-herbaceous-plants class=unnumbered>Developmental models of herbaceous plants</h1><p>In the case of self-similar structures, like trees illustrated in Fig.
+<a href=#fig:fuzzy>[fig:fuzzy]</a>{reference-type=&ldquo;ref&rdquo; reference=&ldquo;fig:fuzzy&rdquo;}
+<a href=#fig:aglae>[fig:aglae]</a>{reference-type=&ldquo;ref&rdquo; reference=&ldquo;fig:aglae&rdquo;}
+<a href=#fig:randomized>[fig:randomized]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:randomized&rdquo;}, the synthesis methods based on rewriting
+rules, are fairly expressive and randomizing strategies fix the problem
+of unnatural regularity. However, a more general approach is needed to
+model the large variety of developmental patterns and structures found
+in nature, especially, it is not possible to obtain Fig.
+<a href=#fig:sunflower>[fig:sunflower]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:sunflower&rdquo;} only with 0L-systems. When one observes
+nature, one sees that the flower development is, although repetitive,
+highly controlled. For instance, in most of the cases when a flower
+grows, the stem grows first, and in the end the flower appears. Partial
+L-systems offer this possibility, especially for the case of
+single-flower shoot.</p><h3 id=partial-l-systems class=unnumbered>Partial L-systems</h3><p>Partial L-systems can express the vegetative growth of a plant and,
+after a certain time, the production of the flower. It&rsquo;s not in essence
+a new kind of L-systems, in the sense that it is completely defined by a
+stochastic L-system, but arises from the interpretation of these.
+Considering the example given in [@TheAB] : $$\label{eq:partial}
+\begin{aligned}
+\omega & : a \\\
+a \rightarrow &
+\begin{cases}
+I [L] a & \text{w.p. } \alpha\\\
+I [L] A & \text{w.p. } \beta
+\end{cases} \\\
+A \rightarrow & K
+\end{aligned}$$</p><p>We of course have to have $\alpha + \beta = 1$,
+$\alpha, \beta \geq 0$. The flower stays in its vegetative phase as long
+as the rule $a\rightarrow I[L]a$ is applied, and once the rule
+$a\rightarrow I[L]A$ is selected, the shot stops and the flower appears.
+It is hence possible to control the average height of the flower, by
+controlling the ratio $\frac{\alpha}{\beta}$, that can be interpreted as
+the average height of the result as shown in Fig.
+<a href=#fig:partial>[fig:partial]</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;fig:partial&rdquo;}. Note that the number of iterations is an
+upper-bound, since the rule $a\rightarrow
+I[L]A$ is blocking.</p><div class=fig-table-container><div class=figtbl><div><img src=img/f-1.png alt="random tree 1"></div><div><img src=img/f-4.png alt="random tree 2"></div><div><img src=img/f-3.png alt="random tree 3"></div></div><p class=caption>Three iterations of a partial LSystems</p></div><h3 id=context-sensitive-l-systems class=unnumbered>Context-sensitive L-systems</h3><p>Unlike the 0L-systems in which production rules are applied regardless
+of the context, context-sensitive L-systems, apply rules depending on
+the context of the character evaluated, that is, its predecessors and
+successors. This effect is useful in simulating interactions between
+plant parts. We thus introduce production rules of the form
+$a_l &lt; a > a_r \rightarrow \chi$, where the rule $a
+\rightarrow \chi$ is applied if and only if $a$ is preceded by $a_l$ and
+followed by $a_r$. This allows to <em>move</em> characters (see example), and
+then introduce a sort of timer in the process. Systems in which we
+consider only one side for the context are denoted 1L-systems, and the
+one where we consider the two neighbors of a character, as the following
+example, are called 2L-systems.</p><h4 id=example-from-theab-shortened>Example (from [@TheAB], shortened):</h4><p>$$\begin{aligned}
+\omega & : baaa \\\
+b&lt;a & \rightarrow b\\\
+a&lt;b> \emptyset & \rightarrow f\\\
+b & \rightarrow a \\\
+\end{aligned}$$</p><p>The first generated sentences are given below:</p><p>$$
+baaa \Rightarrow % \quad;\quad
+abaa \Rightarrow % \quad;\quad
+aaba \Rightarrow % \quad;\quad
+aaab \Rightarrow % \quad;\quad
+aaaf \quad
+$$</p><h4 id=note>Note:</h4><p>The priority of the rule application not is given by their order of
+definition, but by the range of their context the broadest context is
+given priority.</p><p>After the $4^{th}$ iteration, the character $f$ appears at the end of
+the sentence, meaning that if we associate $f$ to the flower and $a$ to
+the stem, then the flower appears after four iterations at the top of
+the stem. It is easy, starting from this example, to infer how one can
+use context-sensitive L-systems to create flower-like models.</p><h1 id=open-problems---miscellaneous class=unnumbered>Open problems - Miscellaneous</h1><p>An interesting application of parametric context-sensitive L-systems has
+been exposed by Hammel and Prusinkiewicz [@diff-eq], is the use of those
+systems to express numerical solutions to initial value problems for
+partial differential equation.<br>Every 0L-system $G$ defines an obvious set of derivations $E(G)$. Those
+objects, the <em>0L sequence languages</em> have been studied in
+[@ROZENBERG1980195].<br><strong>Open problem:</strong> Given two arbitrary OL-systems $G_1$ and $G_2$, is it
+possible to decide whether $E(G_1) = E(G_2)$?<br>R. Book conjectured that the answer to the above question is positive.<br>A locally contenative sequence is a sequence of words in which each word
+can be constructed as the concatenation of previous words in the
+sequence.<br><strong>Open problem:</strong> Is it decidable whether an arbitrary DOL-system is
+locally contenative ?</p><p>The above problem constitutes today perhaps the most important open
+problem concerning DOL systems.</p><h1 id=app:ldef>L-systems definitions</h1><h2 id=app:tri>Triangle</h2><p>Parameters: $$\begin{aligned}
+l & =10 \\\
+\delta & = 60 \\\
+\end{aligned}$$ System: $$\begin{aligned}
+\omega & : A \\\
+\\\
+B & \rightarrow -A+B+A- \\\
+A & \rightarrow +B-A-B+ \\\
+\end{aligned}$$</p><h2 id=app:fuzzy>Fuzzy tree</h2><p>Parameters:</p><p>$$\begin{aligned}
+l & =10 \\\
+\delta & = 22 \\\
+\end{aligned}$$</p><p>System:
+$$\begin{aligned}
+\omega & : X \\\
+\\\
+F & \rightarrow FF \\\
+X & \rightarrow F-[[X]+X]+F[+FX]-X \\\
+\end{aligned}$$</p><h2 id=app:fuzzy>Randomized tree</h2><p>Parameters: $$\begin{aligned}
+l & =10 \\\
+\delta & = 15 \\\
+\end{aligned}$$ System: $$\begin{aligned}
+\omega & : X \\\
+\\\
+F & \rightarrow FF \\\
+X & \rightarrow \begin{cases}
+F-[[XC]+XC]+[[XC]+XC]-X & \text{w.p.} \frac{1}{4} \\\
+F-[[XC]+XC]+[-FXC]+X & \text{w.p.} \frac{1}{4} \\\
+F[+XC][-XC]FX & \text{w.p.} \frac{1}{4} \\\
+F[+XC]F[-XC]+X & \text{w.p.} \frac{1}{4} \\\
+\end{cases}
+\end{aligned}$$</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>Hugo Thomas</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>04-10-2022</span></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/review-graph-sparsification/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">State-of-the-art review</span>
+<span class="prev-text nav-mobile">Prev</span></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=https://github.com/thmhugo/ class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=https://thmhugo.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2022<span> |</span>
+<span>Hugo Thomas</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
+<script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script>
+<script type=text/javascript src=/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script></body></html>

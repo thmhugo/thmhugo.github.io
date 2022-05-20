@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://thmhugo.github.io/sitemap.xml
