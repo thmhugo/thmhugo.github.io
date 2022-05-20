@@ -1,0 +1,93 @@
+\newcommand{\colors}{0/olive, 1/teal, 2/purple, 3/red, 4/orange, 5/yellow, 6/pink}
+\newcommand{\doublearrow}{{Stealth[length=2mm, width=2mm]}-{Stealth[length=2mm, width=2mm]}}
+\newcommand{\doublearrowsmall}{{Stealth[length=1mm, width=1mm]}-{Stealth[length=1mm, width=1mm]}}
+
+\begin{tikzpicture}
+    \tikzmath{
+        \w = 3;
+        \h = 0.6;
+        \n = 7;
+        \lenN = \h * .5;
+        \nm = \n - 1;
+        \gap = 1;
+        \resVecX = \w + \gap * 2 + \lenN;
+        \labelSpace = 0.3;
+        \vecOffset = (\n * \h - \w) * .5;
+    }
+
+    % definition of the coordinates of the matrix
+    \foreach \x/\y in {0,...,\n}
+    {
+        \coordinate (a\x) at (0,\x * \h) {};
+        \coordinate (b\x) at (\w,\x * \h) {};
+        \coordinate (x\x) at (0,\x * \h + \lenN) {};
+        \coordinate (y\x) at (\w,\x * \h + \lenN) {};
+    }
+
+    % draw and fill the matrix rows
+    \foreach \x/\y in \colors
+    {
+        \pgfmathtruncatemacro{\nextX}{\x+1}
+        \draw[fill = \y!60]
+            (a\x) -- (b\x) -- (b\nextX) -- (a\nextX) -- (a\x);
+        \draw[dashed, line width = .1mm]
+            (x\x) -- (y\x);
+    }
+
+    % hatched vector
+    \draw[pattern=north west lines, pattern color=black]
+        (\w + \gap, \vecOffset )
+    -- (\w + \gap + \h * .5, \vecOffset)
+    -- (\w + \gap + \h * .5, \n * \h - \w * .5 + \vecOffset)
+    -- (\w + \gap, \n * \h - \w * .5 + \vecOffset)
+    -- (\w + \gap, + \vecOffset);
+
+
+    % definition of the coordinates of the resulting vector
+    \foreach \x/\y in {0,...,\n}
+    {
+        \coordinate (c\x) at (\resVecX, \x * \h) {};
+        \coordinate (d\x) at (\resVecX + \lenN,\x * \h) {};
+    }
+
+    % draw and fill the resulting vector
+    \foreach \x/\y in \colors
+    {
+        \pgfmathtruncatemacro{\nextX}{\x+1}
+        \draw[preaction={fill, \y!60}, pattern=north west lines, pattern color=black]
+            (c\x) -- (d\x) -- (d\nextX) -- (c\nextX) -- (c\x);
+    }
+
+    % operators
+    \node[] () at (\w + \gap * 1.5 + \lenN , \h * \n * .5) {$=$};
+    \node[] () at (\w + \gap / 2, \h * \n * .5) {$\times$};
+
+    % informations about dimensions of the matrices
+    \draw [\doublearrow]
+        (- \labelSpace,0) -- (-\labelSpace, \h * \n);
+    \node[label={[align=center]left:$N$}] at
+        (-\labelSpace, \h * \n * .5) {};
+
+    \draw [\doublearrowsmall]
+        (\w  + \labelSpace,\nm * \h) -- (\w+ \labelSpace, \n * \h);
+    \node[label={[align=center]center:$\frac Np$}] at
+        (\w +\labelSpace * 2,\nm * \h + \h * .5) {};
+
+    \draw [\doublearrowsmall]
+        (\w + \gap ,\vecOffset - \labelSpace) -- (\w + \gap + \lenN ,\vecOffset - \labelSpace);
+    \node[label={[align=center]below:$n$}] at
+        (\w + \gap + \lenN * .5,\vecOffset - \labelSpace) {};
+
+    \draw [\doublearrow]
+        (0,-\labelSpace) -- (\w, -\labelSpace);
+    \node[label={[align=left]left:$N-k$}] at
+        (\w * .75, -2 * \labelSpace) {};
+
+    % name of each matrix
+    \node[label={[align=center]center:$M$}] at
+        (\w * .5, \h * \n + \labelSpace) {};
+    \node[label={[align=center]center:$v$}] at
+        (\w + \gap + \lenN * .5, \h * \n + \labelSpace) {};
+    \node[label={[align=center]center:$t$}] at
+        (\w + 2 * \gap + \lenN * 1.5, \h * \n + \labelSpace) {};
+\end{tikzpicture}
