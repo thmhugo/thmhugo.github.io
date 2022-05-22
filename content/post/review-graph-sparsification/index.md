@@ -5,24 +5,13 @@ date = "2022-05-20"
 author = "Hugo Abreu, Fanny Terrier, Hugo Thomas"
 +++
 
-
-
-
-
 This report presents a review of a paper written by Apers and de Wolf
 [@apers_quantum_2019] in which a new quantum algorithm for graph
 sparsification relying on nearly linear classical algorithms is
 introduced, leading to quantum speedups for several problems such as
 extremal cuts and Laplacian solving.
 
-
-
 <include src="../header.html"></include>
-
-
-
-
-
 
 # Introduction
 
@@ -59,7 +48,7 @@ Let $G = (V, E, \omega)$ be a weighted graph, the Laplacian of $G$ is an
 $n
 \times n$ matrix defined as $$L_G = D - A$$ where $D$ is the degree
 matrix and $A$ is the adjacency matrix, defined such that
-$(D)_{ii} = \sum_j \omega(i,j)$ and $(A)_{ij} = \omega(i,j)$. The graph
+$(D)\_{ii} = \sum_j \omega(i,j)$ and $(A)_{ij} = \omega(i,j)$. The graph
 shown in Fig.
 [\[fig:weighted-graph-example\]](#fig:weighted-graph-example){reference-type="ref"
 reference="fig:weighted-graph-example"} has the following adjacency and
@@ -68,7 +57,7 @@ degree matrices $$A = \begin{pmatrix}
         1 & 0 & 2 & 2 \\\\\\
         2 & 2 & 0 & 0 \\\\\\
         1 & 2 & 0 & 0
-    \end{pmatrix} \text{,} \;
+    \end{pmatrix} \text{,}
     \quad
     D = \begin{pmatrix}
         4 & 0 & 0 & 0 \\\\\\
@@ -123,11 +112,11 @@ Spectral sparsification of graphs aims to reduce the number of edges,
 while keeping an approximation of interesting quantities i.e.,
 approximately preserving all quadratic forms.
 
-::: definition
-**Definition 1** ($\varepsilon$-sparsifier). H is an
-$\varepsilon$-sparsifier of G if and only if $\forall \chi\in
-    \mathbb{R}^n, \chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi$.
-:::
+#### Definition
+##### $\varepsilon$-sparsifier
+H is an $\varepsilon$-sparsifier of G if and only if for all $\chi \in \mathbb{R}^n$n
+the following holds:
+$$\mathbb{R}, \chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi \ .$$
 
 Using the pseudo-inverse of the Laplacian, this definition can be
 equivalently formulated as
@@ -139,12 +128,12 @@ L_h \preccurlyeq (1+\varepsilon) L_G$, where $\preccurlyeq$ denotes the
 partial ordering on symmetric matrices. The three above definitions are
 equivalent and one should use one or the other depending on the context.
 
-::: theorem
-**Theorem 2** (Graph Sparsifier). *Every graph $G$ has an
+#### Theorem
+##### Graph Sparsifier
+Every graph $G$ has an
 $\varepsilon$-spectral sparsifier $H$ with a number of edges in
 $\tilde{O}(\frac{n}{\varepsilon^2})$. Moreover, $H$ can be found in time
-$\tilde{O}(m)$.*
-:::
+$\tilde{O}(m)$.
 
 One should note that this is relevant only when
 $\varepsilon\leq \sqrt\frac{n}{m}$
@@ -201,12 +190,11 @@ set of vertices of $V$. A spanner $H$ of a graph $G$ is a subgraph of
 $G$ with fewer edges, where a trade-off is made between the number of
 edges and the stretching of distances.
 
-::: definition
-**Definition 3**. An $(\alpha,\beta)$-spanner of the graph $G=(V,E)$ is
-a subgraph $H = (V,
-    E_H)$ with $E_H \subseteq E$, such that $\forall u, v \in V$,
-$$\delta_G(u,v) \leq \delta_H(u,v) \leq \alpha\delta_G(u,v) + \beta.$$
-:::
+#### Definition
+##### Graph spanner
+An $(\alpha,\beta)$-spanner of the graph $G=(V,E)$ is a subgraph $H = (V,E_H)$
+with $E_H \subseteq E$, such that $\forall u, v \in V$, $$\delta_G(u,v) \leq
+\delta_H(u,v) \leq \alpha\delta_G(u,v) + \beta.$$
 
 This definition holds for weighted graphs, in which case the weight of
 the kept edges stay unchanged. In the following only multiplicative
@@ -216,12 +204,10 @@ n$-spanners. Furthermore, key objects of the algorithm for graph
 $\varepsilon$-spectral sparsification described below are $r$-packings
 spanners.
 
-::: {#def:packing-spanner .definition}
-**Definition 4**. Let $G$ be a graph, an $r$-packings spanner of $G$ is
-an ordered set $H=(H_1,
-    \cdots, H_r)$ of $r$ edge-disjoint subgraphs of $G$ such that $H_i$
-is a spanner for the graph $G - \bigcup_{j=1}^{i-1} H_j$.
-:::
+#### Definition
+Let $G$ be a graph, an $r$-packings spanner of $G$ is an ordered set $H=(H_1,
+\cdots, H_r)$ of $r$ edge-disjoint subgraphs of $G$ such that $H_i$ is a spanner
+for the graph $G - \bigcup_{j=1}^{i-1} H_j$.
 
 Koutis and Xu proposed the following algorithm [@koutis_simple_2016],
 using the effective resistance of each edge as exhibited by Spielman and
@@ -238,24 +224,23 @@ $\tilde{G}$
 
 and provided the following theorem:
 
-::: {#thm:classical-sparsifier .theorem}
-**Theorem 5** (Classical sparsifier). *The output $\tilde{G}$ of
-**ClassicallySparsify** on inputs $G$ and $\varepsilon$ satisfies with
-probability $1 - \frac{1}{n^2}$
-$$(1 - \varepsilon) L_G \preccurlyeq L_{\tilde{G}} \preccurlyeq (1 + \varepsilon) L_G$$
-Moreover, the expected number of edges in $\tilde{G}$ is at most
-$\tilde{O}(\frac{n}{\varepsilon^2} + \frac{m}{2})$.*
-:::
 
-The proof of Theorem [5](#thm:classical-sparsifier){reference-type="ref"
-reference="thm:classical-sparsifier"} [@koutis_simple_2016] ensures that
-the output of **ClassicallySparsify** is an $\varepsilon$-spectral
-sparsifier. A single iteration of the above procedure divides the number
-of edges in the output graph by roughly two. Hence, repeating
-$t \in O(\log \frac{m}{n})$ times
+#### Theorem {#thmClassicalSparsifier}
+##### Classical sparsifier
+The output $\tilde{G}$ of **ClassicallySparsify** on inputs $G$ and
+$\varepsilon$ satisfies with probability $1 - \frac{1}{n^2}$ $$(1 - \varepsilon)
+L_G \preccurlyeq L_{\tilde{G}} \preccurlyeq (1 + \varepsilon) L_G$$ Moreover,
+the expected number of edges in $\tilde{G}$ is at most
+$\tilde{O}(\frac{n}{\varepsilon^2} + \frac{m}{2})$.
+
+The proof of the theorem of [classical sparsification]({{< relref
+ "#thmClassicalSparsifier" >}}) ensures that the output of
+**ClassicallySparsify** is an $\varepsilon$-spectral sparsifier. A single
+iteration of the above procedure divides the number of edges in the output graph
+by roughly two. Hence, repeating $t \in O(\log \frac{m}{n})$ times
 **ClassicallySparsify($G, \varepsilon'$)** with $\varepsilon' \in
-O(\frac{\varepsilon}{t})$ results in an $\varepsilon$-spectral
-sparsifier with $\tilde{O}(\frac{n}{\varepsilon^2})$ edges.
+O(\frac{\varepsilon}{t})$ results in an $\varepsilon$-spectral sparsifier with
+$\tilde{O}(\frac{n}{\varepsilon^2})$ edges.
 
 Complexity-wise, the execution time of the provided algorithm is mostly
 dominated by the construction of the
@@ -290,13 +275,13 @@ In order to efficiently construct a graph spanner, Thorup and Zwick
 [@Thorup_Zwick_2005] designed a classical algorithm based on
 shortest-path trees.
 
-::: definition
-**Definition 6** (shortest-path tree). Inside a graph $G=(V,E)$, a
-shortest path tree $\mathcal T$, rooted at a node $v_0$ and covering a
-subset $S\subseteq V$ of vertices, is a subgraph of $G$ such that for
-all nodes $v_S \in S$, the distance between $v_0$ and $v_S$ is the same
-as in the original graph $G$, and is minimal in $G$.
-:::
+#### Definition
+##### Shortest-path tree
+Inside a graph $G=(V,E)$, a shortest path tree $\mathcal T$, rooted at a node
+$v_0$ and covering a subset $S\subseteq V$ of vertices, is a subgraph of $G$
+such that for all nodes $v_S \in S$, the distance between $v_0$ and $v_S$ is the
+same as in the original graph $G$, and is minimal in $G$.
+
 
 Their algorithm constructs a $(2k-1)$-spanner $H$ of $G$ with
 $O(k n^{1+1/k})$ edges, for some $k\in \mathbb{N}$. To do so, a family
@@ -326,7 +311,7 @@ where $cost(i,j) = \delta(v_0,i) + \frac{1}{w(i,j)}$. The quantum time
 improvement arises from a speedup for the selection of the cheapest
 border edge. The quantum routine called in the quantum shortest path
 tree algorithm is the *minimum finding* quantum algorithm
-$\textsc{MINFIND}(d,f,g)$, which takes as inputs
+$\text{MINFIND}(d,f,g)$, which takes as inputs
 
 -   a *value* function $f : [N] \rightarrow \mathbb{R} \cup \{\infty\}$
 
@@ -356,14 +341,11 @@ set of nodes $P_L$ that contains at most one edge for each node in
 $P_L$, and if several edges are possible, the least costly is kept. A
 brief explanation follows.
 
-::: algorithm
-::: algorithmic
+```c
 $T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$
-
 set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
 $\text{dist}(u) = \infty$.
-
-$B_L = \textsc{MINFIND}(|P_L|,f,g)$ Let
+$B_L = \text{MINFIND}(|P_L|,f,g)$ Let
 $(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$ with
 $v\notin P_1 \cup \dots \cup P_L$. $\mathcal{T}$
 $V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
@@ -371,8 +353,24 @@ $\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow \{v\}$
 , $L\leftarrow L+1$
 
 *merge $P_L$ into $P_{L-1}$* $L \leftarrow L-1$
-:::
-:::
+```
+
+<!-- <div class="algorithm">
+$T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$ <br>
+
+set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
+$\text{dist}(u) = \infty$. <br>
+
+$B_L = \textsc{MINFIND}(|P_L|,f,g)$ <br>
+Let  $(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$ with
+$v\notin P_1 \cup \dots \cup P_L$. <br>
+$\mathcal{T}$
+$V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
+$\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow \{v\}$
+, $L\leftarrow L+1$
+<p> Name of the algorithm </p>
+</div> -->
+
 
 In [Algorithm
 [\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
@@ -384,7 +382,7 @@ $\mathcal T$ covers the connected component of $v_0$.
 Step 1 initializes the distances, as does Dijkstra's algorithm. In Step
 4, a set $B_L$ containing the $|P_L|$ cheapest border edges with
 disjoint target vertices is generated by the quantum routine
-$\textsc{MINFIND}(|P_L|,f,g)$. Step 10 updates the distance of the
+$\text{MINFIND}(|P_L|,f,g)$. Step 10 updates the distance of the
 selected vertex, in a same manner as in Dijkstra's. After all the merges
 of Step 13, the $P_k$ are sets of vertices of the growing tree, so that
 $|P_k| = 2^{L-k}$. This ensures that since $B_k$ contains $|P_k|$ edges,
@@ -394,12 +392,11 @@ effectively selected, thus the correctness of the algorithm (see
 [@apers_quantum_2019 Appendix A, Proposition 5]). As a side note, at
 each step $V_{\mathcal{T}}$ contains the growing tree.
 
-::: {#thm:comp-spt .theorem}
-**Theorem 7**. *In the worst case, [Algorithm
+#### Theorem {#thm:comp-spt}
+In the worst case, [Algorithm
 [\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
-reference="alg:quantum_spt"}](#alg:quantum_spt) returns a shortest path
-tree covering the graph $G=(V,E)$ in time $\tilde{O}(\sqrt{mn})$.*
-:::
+reference="alg:quantum_spt"}](#alg:quantum_spt) returns a shortest path tree
+covering the graph $G=(V,E)$ in time $\tilde{O}(\sqrt{mn})$.*
 
 More precisely, the running time depends on the size of the connected
 component in which the starting node $v_0$ is. Taking into account , one
@@ -407,8 +404,8 @@ can conclude on the overall time complexity of [Algorithm
 [\[alg:quantum-spanner\]](#alg:quantum-spanner){reference-type="ref"
 reference="alg:quantum-spanner"}](#alg:quantum-spanner).
 
-::: {#th:q-spanner .theorem}
-**Theorem 8**. *There exists a quantum algorithm that outputs in time
+#### Theorem {#thmqSpanner}
+There exists a quantum algorithm that outputs in time
 $\tilde{O}(k n^{1/k} \sqrt{mn})$ with high probability a
 $(2k-1)$-spanner of $G$ with an expected number of edges
 $O(k n^{1+1/k})$. *
@@ -432,9 +429,9 @@ time $\tilde{O}(\sqrt{mn})$.
 ## Implicit construction of the graph though a *string*
 
 In order to stay within a sublinear runtime, one cannot use an explicit
-representation as used by Koutis and Xu in [Algorithm
-[\[alg:classical-sparsify\]](#alg:classical-sparsify){reference-type="ref"
-reference="alg:classical-sparsify"}](#alg:classical-sparsify): indeed,
+representation as used by Koutis and Xu in the algorithm of
+[classical spartification]({{< relref
+ "#thmClassicalSparsifier" >}}): indeed,
 after a single iteration, the outputted graph could have up to
 $\frac m2\in O(n^2)$ edges (see e.g., ).
 
@@ -459,15 +456,26 @@ probability 1/4*.
 Thus the graph is represented throughout the execution with a bit-string
 $r$, where each bit $b_e$ is sampled only when edge $e$ is queried.
 
-However, thanks to the result of @zhandry_secure_2015, it is possible to
-discard the random strings by considering $k$-independent hash
-functions, whose definition is recalled in , [Definition
-[12](#def:k-independent-hashing){reference-type="ref"
-reference="def:k-independent-hashing"}](#def:k-independent-hashing).
-Hence, such a structure allows to query for a bit-string element in time
-$\tilde{O}(1)$ without even having to store the bit-string, but still
-being able to retrieve it. It is important to stress that it is a purely
-classical result.
+However, thanks to the result of @zhandry_secure_2015, it is possible to discard
+the random strings by considering $k$-independent hash functions, whose
+[definition]({{< ref "#defkIndependentHashing" >}}) is recalled below. Hence,
+such a structure allows to query for a bit-string element in time $\tilde{O}(1)$
+without even having to store the bit-string, but still being able to retrieve
+it. It is important to stress that it is a purely classical result.
+
+
+#### Definition {#defkIndependentHashing}
+##### $k$-independent hashing functions
+Let $\mathcal U$ be the set of keys. A family $\mathcal{H} = \{ h : \mathcal
+U \rightarrow [m]\}$ is said to be $k$-independent if for all keys $x_1,
+\cdots, x_k$ in $\mathcal U$ pairwise distinct and for all values $v_1, \cdots,
+v_k$ in $[m]$,
+$$\big| \{ h \in \mathcal H ; \quad  h(x_1)=v_1, \cdots, h(x_k)=v_k \} \big| =
+\frac{|\mathcal H |}{m^k} \ ,$$
+in other words, by providing $\mathcal H$ with the uniform probability, for any
+$h\in \mathcal H$,
+$$\mathbb{P}\big(h(x_1)=v_1, \cdots,  h(x_k)=v_k \big) = \frac{1}{m^k} \text{
+.}$$
 
 A quantum oracle that keeps track of the weight updates is easily
 constructed. Considering the $i^{th}$ iteration; given an edge $e$, let
@@ -510,14 +518,13 @@ reference="alg:classical-sparsify"}](#alg:classical-sparsify). The
 sparsified graph is the one induced by the vertices of the initial graph
 and the edges whose weight $w_e^{'}$ is greater than $0$.
 
-::: theoremEnd
-proposition The probability that all $\log \frac mn$ iterations succeed
-is $1 - \textsc{O}(
-\frac{\log n}{n^2})$.
-:::
+#### Proposition
+The probability that all $\log \frac mn$ iterations succeed
+is $1 - O(\frac{\log n}{n^2})$.
 
-::: proofEnd
-Let $p_s$ be the probability of success and $p_f$ be the probability of
+
+
+*Proof* : Let $p_s$ be the probability of success and $p_f$ be the probability of
 failure. If $p_s = 1-\frac{1}{n^2}$ then $p_e = \frac{1}{n^2}$, since
 $\log \frac{m}{n}$ are done, the global probability of failure $P_f$ is
 the sum of each $p_f$, such that
@@ -564,44 +571,41 @@ simulate the random string, to construct a spanner and for the repeated
 Grover search. Therefore, the total runtime is
 $$2 \tilde{O}(\sqrt{mn}/\varepsilon^2) + \tilde{O}(\sqrt{mn}/\varepsilon) = \tilde{O}(\sqrt{mn}/\varepsilon^2) \ .$$
 
-::: {#th:qu-spectral-sparsification .theorem}
-**Theorem 9** (Quantum Spectral Sparsification). *The algorithm
-**QuantumSparsify**$(G,\varepsilon)$ returns with probability
-$1-\textsc{O}(\log n/n^2)$ an $\varepsilon$-spectral sparsifier of $G$
-with $\tilde{O}(n/\varepsilon^2)$ edges, in time
+#### Theorem {#th:qu-spectral-sparsification .theorem}
+##### Quantum Spectral Sparsification
+The algorithm **QuantumSparsify**$(G,\varepsilon)$ returns with probability
+$1-O(\log n/n^2)$ an $\varepsilon$-spectral sparsifier of $G$ with
+$\tilde{O}(n/\varepsilon^2)$ edges, in time
 $\tilde{O}(\sqrt{m\,n}/\varepsilon^2)$ and using a QRAM of
-$\tilde{O}(\sqrt{m\,n}/\varepsilon^2)$ bits.*
-:::
+$\tilde{O}(\sqrt{m\,n}/\varepsilon^2)$ bits.
 
 ## Time improvement of quantum sparsification
 
 ### Approximate resistance oracle and spectral sparsification
 
-From the result of Spielman and Srivastava [@spielman_graph_2011], one
-can compute a matrix $Z$ such that for all pairs $(s,t)$ of edges in
-$G$, $$\label{eq:matrix-z}
-    (1-\varepsilon) R_{s,t} \leq || Z\cdot(\chi_s-\chi_t)^2 || \leq (1+\varepsilon) R_{s,t}$$
-in time $\tilde{O}(m/\varepsilon^2)$. $Z$ is defined as
-$Z = QW^{\frac{1}{2}}BL^+$, where $L=B^TWB$ with $B$ the incidence
-matrix and $W$ a diagonal matrix such that $(W)_{ii} = \omega_{e_i}$,
-and $Q$ a random $\pm 1/\sqrt k$ matrix (i.e., independent Bernoulli
-entries). Consequently, thanks to , the matrix $Z$ helps
-$\varepsilon$-approximate the effective resistance between any edge
-$e = (s,t)$ of the initial graph.
+From the result of Spielman and Srivastava [@spielman_graph_2011], one can
+compute a matrix $Z$ such that for all pairs $(s,t)$ of edges in $G$,
+$$\label{eq:matrix-z} (1-\varepsilon) R_{s,t} \leq || Z\cdot(\chi_s-\chi_t)^2 ||
+\leq (1+\varepsilon) R_{s,t}$$
+in time $\tilde{O}(m/\varepsilon^2)$. $Z$ is defined as $Z =
+QW^{\frac{1}{2}}BL^+$, where $L=B^TWB$ with $B$ the incidence matrix and $W$ a
+diagonal matrix such that $(W)\_{ii} = \omega_{e_i}$, and $Q$ a random $\pm
+1/\sqrt k$ matrix (i.e., independent Bernoulli entries).  Consequently, thanks
+to , the matrix $Z$ helps $\varepsilon$-approximate the effective resistance
+between any edge $e = (s,t)$ of the initial graph.
 
 The proof of the existence of such a $Z$ matrix allows one to
 efficiently create an oracle for the quantum algorithm.
 
-::: {#th:app-resistance-oracle .theorem}
-**Theorem 10** (Sparsification with approximate resistances
-[@spielman_graph_2011]). *Let $R_e/2 \leq \tilde{R_e} \leq 2R_e$ be a
+#### Theorem {#th:app-resistance-oracle .theorem}
+##### Sparsification with approximate resistances
+[@spielman_graph_2011] Let $R_e/2 \leq \tilde{R_e} \leq 2R_e$ be a
 rough approximation of $R_e$, for each $e\in E$ and
 $p_e = min(1,Cw_e\tilde{R_e}\log(n)/\varepsilon^2)$. Then, with
 probability $1-1/n$, an $\varepsilon$-spectral sparsifier $H$ with
 $O(n\log(n)/\varepsilon^2)$ edges can be obtained by keeping every edge
 $e$ independently with probability $p_e$ and rescaling its weight with
-$1/p_e$.*
-:::
+$1/p_e$.
 
 allows one to efficiently define the $\{p_e\}$ according the effective
 resistance approximations $\{\tilde {R_e}\}$.
@@ -725,13 +729,13 @@ of the runtimes of the three steps and it is therefore
 $\tilde{O}(\sqrt{mn})$.
 
 ::: {#th:raf-spectral-sparisifaction .theorem}
-**Theorem 11** (Quantum Spectral Sparsification).
-***RefinedQuantumSparsify**($G$,$\varepsilon)$ returns with high
+#### Theorem
+##### Quantum Spectral Sparsification
+**RefinedQuantumSparsify**($G$,$\varepsilon)$ returns with high
 probability an $\varepsilon$-spectral sparsifier $H$ with
 $\tilde{O}(n/\varepsilon^2)$ edges, and has runtime
 $\tilde{O}(\sqrt{mn}/\varepsilon)$. The algorithm uses $O(\log\, n)$
-qubits and a QRAM of $\tilde{O}(\sqrt{mn}/\varepsilon)$.*
-:::
+qubits and a QRAM of $\tilde{O}(\sqrt{mn}/\varepsilon)$.
 
 Having arrived to , the main result of the paper was made explicit.
 @apers_quantum_2019's algorithm thus implies a quantum speedup for
@@ -768,23 +772,8 @@ complexity* which only counts the number of quantum queries to the
 input. As an example of actual QRAM, a quantum optical implementation is
 presented in [@QRAM].
 
-# $k$-independent hash functions {#ap:def-k-independent}
 
-::: {#def:k-independent-hashing .definition}
-**Definition 12** ($k$-independent hashing). Let $\mathcal U$ be the set
-of keys. A family $\mathcal H = \big\{ h : \mathcal
-U \rightarrow [m]\big\}$ is said to be $k$-independent if for all keys
-$x_1,
-\cdots, x_k$ in $\mathcal U$ pairwise distinct and for all values
-$v_1, \cdots,
-v_k$ in $[m]$,
-$$\big| \{ h \in \mathcal H \; ;\; h(x_1)=v_1, \cdots,  h(x_k)=v_k \} \big| =
-    \frac{|\mathcal H |}{m^k} \text{ ,}$$ in other words, by providing
-$\mathcal H$ with the uniform probability, for any $h\in \mathcal H$
-$$\mathbbm{P}\big(h(x_1)=v_1, \cdots,  h(x_k)=v_k \big) = \frac{1}{m^k} \text{ .}$$
-:::
 
-# Proofs
 
 [^1]: A border edge $(i,j)$ of $\mathcal T$ is so that $i\in \mathcal T$
     and $j \notin \mathcal T$.
