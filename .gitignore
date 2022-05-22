@@ -1,2 +1,8 @@
 *.bak
 *.DS_Store
+
+/bower_components/
+/node_modules/
+.DS_Store
+docs
+.idea

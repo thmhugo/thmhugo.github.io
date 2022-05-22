@@ -86,3 +86,18 @@ h5+p:before {
     content: "Figure " counter(figures) " : ";
     /* On affiche le compteur */
 }
+
+.hugo-cite-citation {
+    display: none;
+}
+
+
+// What a bad fix :/
+.hugo-cite-group:before {
+    content: "[";
+}
+
+// What a bad fix :/
+.hugo-cite-group:after {
+    content: " ]";
+}

@@ -5,13 +5,13 @@ date = "2022-05-20"
 author = "Hugo Abreu, Fanny Terrier, Hugo Thomas"
 +++
 
-This report presents a review of a paper written by Apers and de Wolf
-[@apers_quantum_2019] in which a new quantum algorithm for graph
-sparsification relying on nearly linear classical algorithms is
-introduced, leading to quantum speedups for several problems such as
-extremal cuts and Laplacian solving.
+This report presents a review of a paper written by {{< cite apers_quantum_2019
+>}} in which a new quantum algorithm for graph sparsification relying on nearly
+linear classical algorithms is introduced, leading to quantum speedups for
+several problems such as extremal cuts and Laplacian solving.
 
 <include src="../header.html"></include>
+<link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
 
 # Introduction
 
@@ -22,7 +22,7 @@ science, such as optimization and networks. Many practical problems can
 indeed be reduced to graph problems, and as such are of interest to
 computer scientists. Recent works, such as that by Chen *et al.*,
 yielded a near-linear time classical algorithm for the exact
-maximum-cost flow problem [@chen_maximum_2022]. It is nevertheless
+maximum-cost flow problem {{< cite chen_maximum_2022 >}}. It is nevertheless
 possible to get an even better speedup by considering approximate
 algorithms. The paper contribution is the creation of a quantum
 algorithm for $\varepsilon$-spectral sparsification of graphs in time
@@ -138,11 +138,10 @@ $\tilde{O}(m)$.
 One should note that this is relevant only when
 $\varepsilon\leq \sqrt\frac{n}{m}$
 
-The existence of such $\varepsilon$-spectral sparsifier was proved by
-Spielman and Teng [@spielman_spectral_2011]. Additional work of Batson,
-Spielman and Strivastava [@batson_twice-ramanujan_2012] reduced the
-lower bound on the number of edges in the sparsifier to
-$O(\frac{n}{\varepsilon^2})$.
+The existence of such $\varepsilon$-spectral sparsifier was proved by {{< cite
+spielman_spectral_2011 >}}. Additional work of {{< cite
+batson_twice-ramanujan_2012 >}} reduced the lower bound on the number of edges
+in the sparsifier to $O(\frac{n}{\varepsilon^2})$.
 
 # Classical Sparsification Algorithm {#seq:classical_sparsification}
 
@@ -150,12 +149,11 @@ The classical algorithm for graph sparsification is based on edge
 sampling, where each edge is added to the sparsifier according to a
 fixed probability distribution.
 
-In order to be sure $L_H$ effectively approximates $L_G$, the choice of
-each $p_e$ cannot be done at random. A nearly-linear classical
-sparsification algorithm was introduced by Spielman and Srivastava
-[@spielman_graph_2011], by approximating effective resistance between
-any two edges in the graph efficiently, and thus introducing a way to
-correctly sampling the edges.
+In order to be sure $L_H$ effectively approximates $L_G$, the choice of each
+$p_e$ cannot be done at random. A nearly-linear classical sparsification
+algorithm was introduced by {{< cite spielman_graph_2011 >}}, by approximating
+effective resistance between any two edges in the graph efficiently, and thus
+introducing a way to correctly sampling the edges.
 
 ## Effective resistance
 
@@ -176,7 +174,7 @@ $e=(u,v)$, with $u,v$ two nodes, can be expressed with the quadratic
 form $$\label{eq:effective-resistance}
    R_{u,v} = (\chi_u - \chi_v)^TL_G^+(\chi_u - \chi_v) \text{ ,}$$ where
 $\chi_i$ is the $i^{th}$ vector of the canonical basis.
-[@spielman_graph_2011]
+{{< cite spielman_graph_2011 >}}
 
 ## Graph spanner
 
@@ -209,7 +207,7 @@ Let $G$ be a graph, an $r$-packings spanner of $G$ is an ordered set $H=(H_1,
 \cdots, H_r)$ of $r$ edge-disjoint subgraphs of $G$ such that $H_i$ is a spanner
 for the graph $G - \bigcup_{j=1}^{i-1} H_j$.
 
-Koutis and Xu proposed the following algorithm [@koutis_simple_2016],
+Koutis and Xu proposed the following algorithm {{< cite koutis_simple_2016 >}},
 using the effective resistance of each edge as exhibited by Spielman and
 Srivastava to construct $t$-packings spanner of the input graph:
 
@@ -250,29 +248,27 @@ $\tilde{O}(\frac{m}{\varepsilon^2})$.
 
 # Quantum speed-up for graph sparsification
 
-Apers and de Wolf propose a quantum analog to the sparsification
-algorithm described in . They build on results from classical and
+Apers and de Wolf propose a quantum analog to the sparsificationalgorithm described in . They build on results from classical and
 quantum algorithms, in particular the classical algorithm for
 sparsification by Koutis and Xu ([Algorithm
 [\[alg:classical-sparsify\]](#alg:classical-sparsify){reference-type="ref"
 reference="alg:classical-sparsify"}](#alg:classical-sparsify)), the
-spanner algorithm by @Thorup_Zwick_2005 [@Thorup_Zwick_2005], the
+spanner algorithm by {{< cite Thorup_Zwick_2005 >}}, the
 quantum algorithm for single-source shortest-path trees by
-@Durr_Heiligman_2006 [@Durr_Heiligman_2006], and an efficient
-$k$-independent hash function by @christiani_independence_2015
-[@christiani_independence_2015].
+{{< cite Durr_Heiligman_2006 >}}, and an efficient
+$k$-independent hash function by
+{{< cite christiani_independence_2015 >}}.
 
 ## Quantum spanner algorithm
 
-The quantum spanner algorithm proposed by @apers_quantum_2019 is heavily
-inspired by the best classical introduced by @Thorup_Zwick_2005
-[@Thorup_Zwick_2005]: as such, the classical algorithm will be
+The quantum spanner algorithm proposed by {{< cite apers_quantum_2019 >}} is heavily
+inspired by the best classical introduced by
+{{< cite Thorup_Zwick_2005 >}}: as such, the classical algorithm will be
 introduced before the quantum one.
 
 ### Classical spanner algorithm
 
-In order to efficiently construct a graph spanner, Thorup and Zwick
-[@Thorup_Zwick_2005] designed a classical algorithm based on
+In order to efficiently construct a graph spanner, {{< cite Thorup_Zwick_2005 >}} designed a classical algorithm based on
 shortest-path trees.
 
 #### Definition
@@ -302,7 +298,7 @@ trees created thereby.
 
 The runtime of Thorup and Zwick's algorithm is dominated by the
 construction of the shortest path trees. A quantum algorithm speeding up
-this construction exists [@Durr_Heiligman_2006], and is strongly
+this construction exists {{< cite Durr_Heiligman_2006 >}}, and is strongly
 inspired by Dijkstra's algorithm. In the latter, a tree $\mathcal{T}$
 rooted at a node $v_0$ is recursively grown by adding the cheapest
 border[^1] edge, i.e the edge $(i,j)$ such that
@@ -389,7 +385,7 @@ $|P_k| = 2^{L-k}$. This ensures that since $B_k$ contains $|P_k|$ edges,
 then at least one of these edges has its target outside of $\cup_{j=1}^L
 P_k$ , implying in Step 5 at least one border edge exists, and is
 effectively selected, thus the correctness of the algorithm (see
-[@apers_quantum_2019 Appendix A, Proposition 5]). As a side note, at
+{{< cite apers_quantum_2019 >}} Appendix A, Proposition 5}). As a side note, at
 each step $V_{\mathcal{T}}$ contains the growing tree.
 
 #### Theorem {#thm:comp-spt}
@@ -446,7 +442,7 @@ Grover search to the undiscarded $\tilde{O}(n/\varepsilon^{2})$ edges,
 whose union forms the spectral sparsifier. In addition, it is possible
 to further improve the classical complexity, since a $k$-query quantum
 algorithm cannot distinguish a $2k$-wise independent strings from a
-uniformly random one [@zhandry_secure_2015].
+uniformly random one {{< cite zhandry_secure_2015 >}}.
 
 At first, a family of independent random bit-strings
 $$r_i \in \{0,1\}^{m} \text{, } \; i \in \big[\log \frac mn\big] \text{ ,}$$
@@ -456,7 +452,7 @@ probability 1/4*.
 Thus the graph is represented throughout the execution with a bit-string
 $r$, where each bit $b_e$ is sampled only when edge $e$ is queried.
 
-However, thanks to the result of @zhandry_secure_2015, it is possible to discard
+However, thanks to the result of {{< cite zhandry_secure_2015 >}}, it is possible to discard
 the random strings by considering $k$-independent hash functions, whose
 [definition]({{< ref "#defkIndependentHashing" >}}) is recalled below. Hence,
 such a structure allows to query for a bit-string element in time $\tilde{O}(1)$
@@ -583,7 +579,7 @@ $\tilde{O}(\sqrt{m\,n}/\varepsilon^2)$ bits.
 
 ### Approximate resistance oracle and spectral sparsification
 
-From the result of Spielman and Srivastava [@spielman_graph_2011], one can
+From the result of Spielman and Srivastava {{< cite spielman_graph_2011 >}}, one can
 compute a matrix $Z$ such that for all pairs $(s,t)$ of edges in $G$,
 $$\label{eq:matrix-z} (1-\varepsilon) R_{s,t} \leq || Z\cdot(\chi_s-\chi_t)^2 ||
 \leq (1+\varepsilon) R_{s,t}$$
@@ -598,14 +594,12 @@ The proof of the existence of such a $Z$ matrix allows one to
 efficiently create an oracle for the quantum algorithm.
 
 #### Theorem {#th:app-resistance-oracle .theorem}
-##### Sparsification with approximate resistances
-[@spielman_graph_2011] Let $R_e/2 \leq \tilde{R_e} \leq 2R_e$ be a
-rough approximation of $R_e$, for each $e\in E$ and
-$p_e = min(1,Cw_e\tilde{R_e}\log(n)/\varepsilon^2)$. Then, with
-probability $1-1/n$, an $\varepsilon$-spectral sparsifier $H$ with
-$O(n\log(n)/\varepsilon^2)$ edges can be obtained by keeping every edge
-$e$ independently with probability $p_e$ and rescaling its weight with
-$1/p_e$.
+##### Sparsification with approximate resistances {{< cite spielman_graph_2011 >}}
+Let $R_e/2 \leq \tilde{R_e} \leq 2R_e$ be a rough approximation of $R_e$, for
+each $e\in E$ and $p_e = min(1,Cw_e\tilde{R_e}\log(n)/\varepsilon^2)$. Then,
+with probability $1-1/n$, an $\varepsilon$-spectral sparsifier $H$ with
+$O(n\log(n)/\varepsilon^2)$ edges can be obtained by keeping every edge $e$
+independently with probability $p_e$ and rescaling its weight with $1/p_e$.
 
 allows one to efficiently define the $\{p_e\}$ according the effective
 resistance approximations $\{\tilde {R_e}\}$.
@@ -621,7 +615,7 @@ $$\tilde{R_e} = || Z \cdot (\chi_s-\chi_t)^2 || \text{ .}$$ The
 probability $p_e$ of keeping an edge $e$ is taken to be proportional to
 $\tilde{R_e}$, since an edge will be more important if it belongs to a
 weak component, i.e. if it has a high effective resistance. Thanks to
-the result of @bollobas_modern_1998 [@bollobas_modern_1998 Theorem 25],
+the result of {{< cite bollobas_modern_1998 >}} Theorem 25,
 $$\sum_e w_e R_e = n-1$$ for connected graphs of order $n$ [^3], and
 thus, one has that $\sum_e w_e \tilde{R_e} = O(n)$. Since $\sum_e p_e$
 represents the number of edges in the sparsifier, if one wants to end up
@@ -709,7 +703,7 @@ $\tilde{O}(\sqrt{m \sum_e p_e})$ where $$\begin{aligned}
     \sum_e p_e
         & \leq \frac{C \log(n)}{\varepsilon^2} \sum_e w_e \tilde{R^H_e} \\\\\\
         & \leq \dfrac{(1+1/100)^2 C \log(n)}{\varepsilon^2} \sum_e w_e R^G_e \ .
-\end{aligned}$$ As stated in [@bollobas_modern_1998], one always has
+\end{aligned}$$ As stated in {{< cite bollobas_modern_1998 >}}, one always has
 that for a connected graph of order $n$, $\sum_e w_e R^G_e = n-1$.
 Therefore, we can conclude that
 $\sum_e p_e \in \tilde{O}(n/\varepsilon^2)$ which implies that the total
@@ -738,12 +732,12 @@ $\tilde{O}(\sqrt{mn}/\varepsilon)$. The algorithm uses $O(\log\, n)$
 qubits and a QRAM of $\tilde{O}(\sqrt{mn}/\varepsilon)$.
 
 Having arrived to , the main result of the paper was made explicit.
-@apers_quantum_2019's algorithm thus implies a quantum speedup for
+{{< cite apers_quantum_2019 >}}'s algorithm thus implies a quantum speedup for
 solving Laplacian systems and for approximating a range of cut problems
 such as min cut and sparsest cut.
 
 This result can probably be combined with recent classical results such
-as [@chen_maximum_2022] to yield even faster algorithms. Stay tuned\...
+as {{< cite chen_maximum_2022 >}} to yield even faster algorithms. Stay tuned\...
 
 # QRAM Model {#ap:qram}
 
@@ -770,7 +764,7 @@ which counts the number of elementary gates (classical and quantum), of
 quantum queries to the input and of QRAM operations, or the *query
 complexity* which only counts the number of quantum queries to the
 input. As an example of actual QRAM, a quantum optical implementation is
-presented in [@QRAM].
+presented in {{< cite "QRAM" >}}.
 
 
 
@@ -786,3 +780,8 @@ presented in [@QRAM].
     $P(\tilde{W}= \tilde{w_e}) = p_e$ and $P(\tilde{W}= {0}) = 1 - p_e$.
     Then the expectation value of $\tilde{W}$ is
     $\mathbb{E}(\tilde{W}) = p_e \tilde{w_e} + (1-p_e) \times 0  = p_e \tilde{w_e}$.
+
+
+# Bibliography
+
+{{< bibliography cited >}}

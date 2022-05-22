@@ -1,0 +1,465 @@
+[
+  {
+    "DOI": "10.48550/ARXIV.1911.07306",
+    "URL": "https://arxiv.org/abs/1911.07306",
+    "abstract": "Graph sparsification underlies a large number of algorithms, ranging from approximation algorithms for cut problems to solvers for linear systems in the graph Laplacian. In its strongest form, \"spectral sparsification\" reduces the number of edges to near-linear in the number of nodes, while approximately preserving the cut and spectral structure of the graph. In this work we demonstrate a polynomial quantum speedup for spectral sparsification and many of its applications. In particular, we give a quantum algorithm that, given a weighted graph with $n$ nodes and $m$ edges, outputs a classical description of an $ε$-spectral sparsifier in sublinear time $\\tilde{O}(\\sqrt{mn}/ε)$. This contrasts with the optimal classical complexity $\\tilde{O}(m)$. We also prove that our quantum algorithm is optimal up to polylog-factors. The algorithm builds on a string of existing results on sparsification, graph spanners, quantum algorithms for shortest paths, and efficient constructions for $k$-wise independent random strings. Our algorithm implies a quantum speedup for solving Laplacian systems and for approximating a range of cut problems such as min cut and sparsest cut.",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Apers",
+        "given": "Simon"
+      },
+      {
+        "dropping-particle": "de",
+        "family": "Wolf",
+        "given": "Ronald"
+      }
+    ],
+    "id": "apers_quantum_2019",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "keyword": "Quantum Physics (quant-ph), Computational Complexity (cs.CC), Data Structures and Algorithms (cs.DS), FOS: Physical sciences, FOS: Physical sciences, FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "title": "Quantum Speedup for Graph Sparsification, Cut Approximation and Laplacian Solving",
+    "type": "article-journal"
+  },
+  {
+    "DOI": "10.1137/08074489X",
+    "ISSN": "0097-5397, 1095-7111",
+    "URL": "http://epubs.siam.org/doi/10.1137/08074489X",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Spielman",
+        "given": "Daniel A."
+      },
+      {
+        "family": "Teng",
+        "given": "Shang-Hua"
+      }
+    ],
+    "container-title": "SIAM Journal on Computing",
+    "id": "spielman_spectral_2011",
+    "issue": "4",
+    "issued": {
+      "date-parts": [
+        [
+          2011,
+          1
+        ]
+      ]
+    },
+    "page": "981-1025",
+    "title": "Spectral Sparsification of Graphs",
+    "type": "article-journal",
+    "volume": "40"
+  },
+  {
+    "DOI": "10.48550/ARXIV.2203.00671",
+    "URL": "https://arxiv.org/abs/2203.00671",
+    "abstract": "We give an algorithm that computes exact maximum flows and minimum-cost flows on directed graphs with $m$ edges and polynomially bounded integral demands, costs, and capacities in $m^{1+o(1)}$ time. Our algorithm builds the flow through a sequence of $m^{1+o(1)}$ approximate undirected minimum-ratio cycles, each of which is computed and processed in amortized $m^{o(1)}$ time using a new dynamic graph data structure. Our framework extends to algorithms running in $m^{1+o(1)}$ time for computing flows that minimize general edge-separable convex functions to high accuracy. This gives almost-linear time algorithms for several problems including entropy-regularized optimal transport, matrix scaling, $p$-norm flows, and $p$-norm isotonic regression on arbitrary directed acyclic graphs.",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Chen",
+        "given": "Li"
+      },
+      {
+        "family": "Kyng",
+        "given": "Rasmus"
+      },
+      {
+        "family": "Liu",
+        "given": "Yang P."
+      },
+      {
+        "family": "Peng",
+        "given": "Richard"
+      },
+      {
+        "family": "Gutenberg",
+        "given": "Maximilian Probst"
+      },
+      {
+        "family": "Sachdeva",
+        "given": "Sushant"
+      }
+    ],
+    "id": "chen_maximum_2022",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "keyword": "Data Structures and Algorithms (cs.DS), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "title": "Maximum Flow and Minimum-Cost Flow in Almost-Linear Time",
+    "type": "article-journal"
+  },
+  {
+    "DOI": "10.1137/080734029",
+    "ISSN": "0097-5397, 1095-7111",
+    "URL": "http://epubs.siam.org/doi/10.1137/080734029",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Spielman",
+        "given": "Daniel A."
+      },
+      {
+        "family": "Srivastava",
+        "given": "Nikhil"
+      }
+    ],
+    "container-title": "SIAM Journal on Computing",
+    "id": "spielman_graph_2011",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2011,
+          1
+        ]
+      ]
+    },
+    "page": "1913-1926",
+    "title": "Graph Sparsification by Effective Resistances",
+    "type": "article-journal",
+    "volume": "40"
+  },
+  {
+    "DOI": "10.1145/2948062",
+    "ISSN": "2329-4949, 2329-4957",
+    "URL": "https://dl.acm.org/doi/10.1145/2948062",
+    "abstract": "We describe simple algorithms for spectral graph sparsification, based on iterative computations of weighted spanners and sampling. Leveraging the algorithms of Baswana and Sen for computing spanners, we obtain the first distributed spectral sparsification algorithm in the CONGEST model. We also obtain a parallel algorithm with improved work and time guarantees, as well as other natural distributed implementations. Combining this algorithm with the parallel framework of Peng and Spielman for solving symmetric diagonally dominant linear systems, we get a parallel solver that is significantly more efficient in terms of the total work.",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Koutis",
+        "given": "Ioannis"
+      },
+      {
+        "family": "Xu",
+        "given": "Shen Chen"
+      }
+    ],
+    "container-title": "ACM Transactions on Parallel Computing",
+    "id": "koutis_simple_2016",
+    "issue": "2",
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          8
+        ]
+      ]
+    },
+    "page": "1-14",
+    "title": "Simple Parallel and Distributed Algorithms for Spectral Graph Sparsification",
+    "type": "article-journal",
+    "volume": "3"
+  },
+  {
+    "DOI": "10.1137/090772873",
+    "ISSN": "0097-5397, 1095-7111",
+    "URL": "http://epubs.siam.org/doi/10.1137/090772873",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          6
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Batson",
+        "given": "Joshua"
+      },
+      {
+        "family": "Spielman",
+        "given": "Daniel A."
+      },
+      {
+        "family": "Srivastava",
+        "given": "Nikhil"
+      }
+    ],
+    "container-title": "SIAM Journal on Computing",
+    "id": "batson_twice-ramanujan_2012",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          1
+        ]
+      ]
+    },
+    "page": "1704-1721",
+    "title": "Twice-Ramanujan Sparsifiers",
+    "type": "article-journal",
+    "volume": "41"
+  },
+  {
+    "DOI": "10.1142/S0219749915500148",
+    "ISSN": "0219-7499, 1793-6918",
+    "URL": "https://www.worldscientific.com/doi/abs/10.1142/S0219749915500148",
+    "abstract": "We give the first proof of security for an identity-based encryption (IBE) scheme in the quantum random oracle model. This is the first proof of security for any scheme in this model that does not rely on the assumed existence of so-called quantum-secure pseudorandom functions (PRFs). Our techniques are quite general and we use them to obtain security proofs for two random oracle hierarchical IBE schemes and a random oracle signature scheme, all of which have previously resisted quantum security proofs, even assuming quantum-secure PRFs. We also explain how to remove quantum-secure PRFs from prior quantum random oracle model proofs. We accomplish these results by developing new tools for arguing that quantum algorithms cannot distinguish between two oracle distributions. Using a particular class of oracle distributions that we call semi-constant distributions, we argue that the aforementioned cryptosystems are secure against quantum adversaries.",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          8
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Zhandry",
+        "given": "Mark"
+      }
+    ],
+    "container-title": "International Journal of Quantum Information",
+    "id": "zhandry_secure_2015",
+    "issue": "04",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          6
+        ]
+      ]
+    },
+    "page": "1550014",
+    "title": "Secure identity-based encryption in the quantum random oracle model",
+    "type": "article-journal",
+    "volume": "13"
+  },
+  {
+    "DOI": "10.1145/1044731.1044732",
+    "ISSN": "0004-5411",
+    "URL": "https://doi.org/10.1145/1044731.1044732",
+    "author": [
+      {
+        "family": "Thorup",
+        "given": "Mikkel"
+      },
+      {
+        "family": "Zwick",
+        "given": "Uri"
+      }
+    ],
+    "container-title": "J. ACM",
+    "id": "Thorup_Zwick_2005",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2005,
+          1
+        ]
+      ]
+    },
+    "keyword": "distance queries, distances, Approximate distance oracles, distance labelings, shortest paths, spanners",
+    "page": "1-24",
+    "publisher": "Association for Computing Machinery",
+    "publisher-place": "New York, NY, USA",
+    "title": "Approximate distance oracles",
+    "type": "article-journal",
+    "volume": "52"
+  },
+  {
+    "DOI": "10.1137/050644719",
+    "URL": " \n        https://doi.org/10.1137/050644719\n    \n",
+    "author": [
+      {
+        "family": "Dürr",
+        "given": "Christoph"
+      },
+      {
+        "family": "Heiligman",
+        "given": "Mark"
+      },
+      {
+        "family": "HOyer",
+        "given": "Peter"
+      },
+      {
+        "family": "Mhalla",
+        "given": "Mehdi"
+      }
+    ],
+    "container-title": "SIAM Journal on Computing",
+    "id": "Durr_Heiligman_2006",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2006
+        ]
+      ]
+    },
+    "page": "1310-1328",
+    "title": "Quantum query complexity of some graph problems",
+    "type": "article-journal",
+    "volume": "35"
+  },
+  {
+    "DOI": "10.1007/978-1-4612-0619-4",
+    "ISBN": "9780387984889 9781461206194",
+    "URL": "http://link.springer.com/10.1007/978-1-4612-0619-4",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          8
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Bollobás",
+        "given": "Béla"
+      }
+    ],
+    "collection-title": "Graduate Texts in Mathematics",
+    "id": "bollobas_modern_1998",
+    "issued": {
+      "date-parts": [
+        [
+          1998
+        ]
+      ]
+    },
+    "publisher": "Springer New York",
+    "publisher-place": "New York, NY",
+    "title": "Modern Graph Theory",
+    "type": "book",
+    "volume": "184"
+  },
+  {
+    "DOI": "10.1145/2746539.2746620",
+    "ISBN": "9781450335362",
+    "URL": "https://dl.acm.org/doi/10.1145/2746539.2746620",
+    "accessed": {
+      "date-parts": [
+        [
+          2022,
+          5,
+          9
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Christiani",
+        "given": "Tobias"
+      },
+      {
+        "family": "Pagh",
+        "given": "Rasmus"
+      },
+      {
+        "family": "Thorup",
+        "given": "Mikkel"
+      }
+    ],
+    "container-title": "Proceedings of the forty-seventh annual ACM symposium on Theory of Computing",
+    "id": "christiani_independence_2015",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          6
+        ]
+      ]
+    },
+    "page": "813-820",
+    "publisher": "ACM",
+    "publisher-place": "Portland Oregon USA",
+    "title": "From Independence to Expansion and Back Again",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1103/PhysRevLett.100.160501",
+    "URL": "https://link.aps.org/doi/10.1103/PhysRevLett.100.160501",
+    "author": [
+      {
+        "family": "Giovannetti",
+        "given": "Vittorio"
+      },
+      {
+        "family": "Lloyd",
+        "given": "Seth"
+      },
+      {
+        "family": "Maccone",
+        "given": "Lorenzo"
+      }
+    ],
+    "container-title": "Phys. Rev. Lett.",
+    "id": "QRAM",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          4
+        ]
+      ]
+    },
+    "page": "160501",
+    "publisher": "American Physical Society",
+    "title": "Quantum random access memory",
+    "type": "article-journal",
+    "volume": "100"
+  }
+]
