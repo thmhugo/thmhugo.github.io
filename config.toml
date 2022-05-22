@@ -15,7 +15,7 @@ pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
-hasCJKLanguage = true     # has chinese/japanese/korean ?
+hasCJKLanguage = false     # has chinese/japanese/korean ?
 paginate = 5
 disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
@@ -80,17 +80,17 @@ copyright = ""            # default: author.name ↓
 
   # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
   toc = true
-  autoCollapseToc = false   # Auto expand and collapse toc                              # 目录自动展开/折叠
-  fancybox = true           # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
+  autoCollapseToc = false   # Auto expand and collapse toc
+  fancybox = true           # see https://github.com/fancyapps/fancybox
 
   # mathjax
-  mathjax = true           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
-  mathjaxEnableSingleDollar = true                                                     # 是否使用 $...$ 即可進行inline latex渲染
-  mathjaxEnableAutoNumber = true                                                       # 是否使用公式自动编号
+  mathjax = true           # see https://www.mathjax.org/
+  mathjaxEnableSingleDollar = true
+  mathjaxEnableAutoNumber = true
   mathjaxUseLocalFiles = true  # You should install mathjax in `your-site/static/lib/mathjax`
 
-  postMetaInFooter = true   # contain author, lastMod, markdown link, license           # 包含作者，上次修改时间，markdown链接，许可信息
-  linkToMarkDown = false    # Only effective when hugo will output .md files.           # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
+  postMetaInFooter = true   # contain author, lastMod, markdown link, license
+  linkToMarkDown = false    # Only effective when hugo will output .md files.
   contentCopyright = ''     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
 
@@ -106,7 +106,7 @@ copyright = ""            # default: author.name ↓
   # Show language selector for multilingual site.
   showLanguageSelector = false
 
-  # [params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
+  # [params.publicCDN]        # load these files from public cdn
     # enable = true
     # jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
     # slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
@@ -123,22 +123,6 @@ copyright = ""            # default: author.name ↓
     enable = false
     hint = 30               # Display hint if the last modified time is more than these days ago.
     warn = 180              # Display warning if the last modified time is more than these days ago.
-
-  # [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-  #   owner = ""              # Your GitHub ID
-  #   repo = ""               # The repo to store comments
-  #   clientId = ""           # Your client ID
-  #   clientSecret = ""       # Your client secret
-
-  # [params.utterances]       # https://utteranc.es/
-  #   owner = ""              # Your GitHub ID
-  #   repo = ""               # The repo to store comments
-
-  # [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-  #   owner = ""              # Your GitHub ID
-  #   repo = ""               # The repo to store comments
-  #   clientId = ""           # Your client ID
-  #   clientSecret = ""       # Your client secret
 
   [params.social]
     g-github = "https://github.com/thmhugo/"
