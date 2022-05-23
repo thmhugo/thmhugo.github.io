@@ -1,17 +1,17 @@
-+++
-title = "State-of-the-art review"
-description = "Another project reports"
-date = "2022-05-20"
-author = "Hugo Abreu, Fanny Terrier, Hugo Thomas"
-+++
+---
+title : "State-of-the-art review"
+description : "Another project reports"
+date : 2022-05-20
+author : "Hugo Abreu, Fanny Terrier, Hugo Thomas"
+---
+
+
 
 This report presents a review of a paper written by {{< cite apers_quantum_2019
 >}} in which a new quantum algorithm for graph sparsification relying on nearly
 linear classical algorithms is introduced, leading to quantum speedups for
 several problems such as extremal cuts and Laplacian solving.
 
-<include src="../header.html"></include>
-<link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
 
 # Introduction
 
@@ -116,7 +116,7 @@ approximately preserving all quadratic forms.
 ##### $\varepsilon$-sparsifier
 H is an $\varepsilon$-sparsifier of G if and only if for all $\chi \in \mathbb{R}^n$n
 the following holds:
-$$\mathbb{R}, \chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi \ .$$
+$$\chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi \ .$$
 
 Using the pseudo-inverse of the Laplacian, this definition can be
 equivalently formulated as
@@ -211,15 +211,19 @@ Koutis and Xu proposed the following algorithm {{< cite koutis_simple_2016 >}},
 using the effective resistance of each edge as exhibited by Spielman and
 Srivastava to construct $t$-packings spanner of the input graph:
 
-::: algorithm
-::: algorithmic
-*construct an $O(\frac{\log n}{\varepsilon^2})$-packing spanner $H$ of
-$G$* $\tilde{G} \leftarrow H$\
-*$\;$ w.p. $\frac{1}{4}$ add e to $\tilde{G}$, with weight $4\omega_e$*\
-$\tilde{G}$
-:::
-:::
-
+<pre class="algorithm" style="display:none">
+\begin{algorithm}
+    \caption{\textbf{ClassicallySparsify}($G,\epsilon$)}
+    \begin{algorithmic}
+    \STATE \textit{construct an $O(\frac{\log n}{\epsilon ^2})$-packing spanner $H$ of $G$}
+    \STATE $\tilde{G} \leftarrow H $
+    \ForAll{$e \notin H$}
+    \STATE \textit{w.p. $\frac{1}{4}$ add e to $\tilde{G}$, with weight $4\omega_e$}
+    \EndFor
+    \RETURN $\tilde{G}$
+    \end{algorithmic}
+\end{algorithm}
+</pre>
 and provided the following theorem:
 
 
@@ -282,7 +286,7 @@ same as in the original graph $G$, and is minimal in $G$.
 Their algorithm constructs a $(2k-1)$-spanner $H$ of $G$ with
 $O(k n^{1+1/k})$ edges, for some $k\in \mathbb{N}$. To do so, a family
 $\{A_0,\dots, A_k\}$ of node subsets is generated at random such that
-$A_0=V$, $A_k = \emptyset$ and for all $i<k$, $$\label{eq:ai-spanner}
+$A_0=V$, $A_k = \emptyset$ and for all $i < k$, $$\label{eq:ai-spanner}
    A_i = \{v \in A_{i-1}\ w.p.\ n^{-1/k}\} \text{ ,}$$
 
 i.e., $A_i$ contains each edge of the previous subset with probability
@@ -318,7 +322,7 @@ $\text{MINFIND}(d,f,g)$, which takes as inputs
 and outputs a subset $I \subseteq [N]$ of size $|I| = \min\{d,M\}$,
 where $M = |Im(g)|$, such that every distinct elements of $I$ have a
 different type, i.e. for all $i,j \in I$ $$g(i) \neq g(j)\ ,$$ and for
-$j\notin I$ and $i \in I$, having $f(j)<f(i)$ implies that there exists
+$j\notin I$ and $i \in I$, having $f(j) < f(i)$ implies that there exists
 an $i' \in I$ so that $$f(i')\leq f(i) \text{ and } g(i')= g(j)\ ,$$
 i.e., $j$ and $i'$ have the same type.
 
@@ -337,21 +341,8 @@ set of nodes $P_L$ that contains at most one edge for each node in
 $P_L$, and if several edges are possible, the least costly is kept. A
 brief explanation follows.
 
-```c
-$T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$
-set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
-$\text{dist}(u) = \infty$.
-$B_L = \text{MINFIND}(|P_L|,f,g)$ Let
-$(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$ with
-$v\notin P_1 \cup \dots \cup P_L$. $\mathcal{T}$
-$V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
-$\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow \{v\}$
-, $L\leftarrow L+1$
 
-*merge $P_L$ into $P_{L-1}$* $L \leftarrow L-1$
-```
-
-<!-- <div class="algorithm">
+<div class="algo">
 $T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$ <br>
 
 set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
@@ -365,7 +356,7 @@ $V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
 $\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow \{v\}$
 , $L\leftarrow L+1$
 <p> Name of the algorithm </p>
-</div> -->
+</div>
 
 
 In [Algorithm
@@ -490,7 +481,7 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e' =
     0 & \text{otherwise,}
     \end{cases}$$ where $\vee$ is the logical disjunction.
 
-::: algorithm
+<!-- ::: algorithm
 ::: algorithmic
 $\forall e, \; w_e' = w_e$ and $l=\lceil \log\frac mn \rceil$
 $\forall i\in[\log(m/n)], \; r_i \in \{0,1\}^m$, *create $H_i$, union of
@@ -500,6 +491,9 @@ to find $\tilde{E} = \{ e \in E | w_e^{'} > 0\}$ the edges of
 $\tilde{G}$* $\tilde{G}$
 :::
 :::
+ -->
+
+
 
 Intuitively, the unions of the
 $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners select the
@@ -785,3 +779,5 @@ presented in {{< cite "QRAM" >}}.
 # Bibliography
 
 {{< bibliography cited >}}
+
+[*get the original pdf*](./resources/graph-sparsification.pdf)
