@@ -29,8 +29,8 @@
 {{- end }}
 
 <!-- baidu & google verification  -->
-{{ with .Site.Params.baiduVerification }}<meta name="baidu-site-verification" content="{{.}}" />{{ end }}
-{{ with .Site.Params.googleVerification }}<meta name="google-site-verification" content="{{.}}" />{{ end }}
+<!-- {{ with .Site.Params.baiduVerification }}<meta name="baidu-site-verification" content="{{.}}" />{{ end }}
+{{ with .Site.Params.googleVerification }}<meta name="google-site-verification" content="{{.}}" />{{ end }} -->
 
 <!-- Site Generator -->
 <meta name="generator" content="Hugo {{ .Site.Hugo.Version }} with theme even" />
@@ -56,9 +56,9 @@
 {{- end -}}
 
 <!-- busuanzi -->
-{{- if .Site.Params.busuanzi.enable -}}
+<!-- {{- if .Site.Params.busuanzi.enable -}}
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-{{- end -}}
+{{- end -}} -->
 
 <!-- Styles -->
 {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
@@ -89,3 +89,29 @@
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
 <![endif]-->` | safeHTML }}
+
+
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  MathJax = {
+      tex: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          displayMath: [['$$','$$'], ['\\[','\\]']],
+          processEscapes: true,
+          processEnvironments: true,
+      },
+      displayAlign: "center"
+  };
+</script>
+
+<link rel="stylesheet" href="/lib/pseudocode/pseudocode.min.css">
+<script src="/lib/pseudocode/pseudocode.min.js">
+</script> <!-- Algorithms are compiled in the footer -->
+
+
+<link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
+
+<!-- <script src="/lib/mathjax/es5/tex-chtml.js" id="MathJax-script" async></script> -->

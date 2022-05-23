@@ -1,3 +1,15 @@
+<script>
+  document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    // Alert the key name and key code on keydown
+    if (name == 's')
+    {
+      console.log(`Key pressed ${name}`);
+    }
+  }, false);
+</script>
+
 <div class="social-links">
   {{- range $name, $path := .Site.Params.social }}
     {{- if $path }}
@@ -49,3 +61,16 @@
     --><span>{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
   </span>
 </div>
+
+
+<script>
+  var algorithms = document.getElementsByClassName('algorithm');
+  for (var algorithm of algorithms) {
+      pseudocode.renderElement(
+        algorithm,
+            {
+                lineNumber: true,
+                noEnd: true,
+            });
+  }
+</script>
