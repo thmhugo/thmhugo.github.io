@@ -1,5 +1,5 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>State-of-the-art review - Hugo Thomas</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Hugo Abreu, Fanny Terrier, Hugo Thomas"><meta name=description content="Another project reports"><meta name=keywords content="Quantum,algorithm,computer science"><meta name=generator content="Hugo 0.99.1 with theme even"><link rel=canonical href=https://thmhugo.github.io/post/review-graph-sparsification/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.aff4dd67f78fdcb95273f74abde0881acdec0ba70402032284971abcf2624488.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="State-of-the-art review"><meta property="og:description" content="Another project reports"><meta property="og:type" content="article"><meta property="og:url" content="https://thmhugo.github.io/post/review-graph-sparsification/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-05-20T00:00:00+00:00"><meta property="article:modified_time" content="2022-05-20T00:00:00+00:00"><meta itemprop=name content="State-of-the-art review"><meta itemprop=description content="Another project reports"><meta itemprop=datePublished content="2022-05-20T00:00:00+00:00"><meta itemprop=dateModified content="2022-05-20T00:00:00+00:00"><meta itemprop=wordCount content="5623"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="State-of-the-art review"><meta name=twitter:description content="Another project reports"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>hft</a></div><div class=mobile-navbar-icon><span></span>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>State-of-the-art review - Hugo Thomas</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Hugo Abreu, Fanny Terrier, Hugo Thomas"><meta name=description content="Another project reports"><meta name=keywords content="Quantum,algorithm,computer science"><meta name=generator content="Hugo 0.99.1 with theme even"><link rel=canonical href=https://thmhugo.github.io/post/review-graph-sparsification/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.3ffbc6f104806b610da3961309f0c937f67286be6929ce1fca8b4c07efafc89e.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="State-of-the-art review"><meta property="og:description" content="Another project reports"><meta property="og:type" content="article"><meta property="og:url" content="https://thmhugo.github.io/post/review-graph-sparsification/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-05-20T00:00:00+00:00"><meta property="article:modified_time" content="2022-05-20T00:00:00+00:00"><meta itemprop=name content="State-of-the-art review"><meta itemprop=description content="Another project reports"><meta itemprop=datePublished content="2022-05-20T00:00:00+00:00"><meta itemprop=dateModified content="2022-05-20T00:00:00+00:00"><meta itemprop=wordCount content="5500"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="State-of-the-art review"><meta name=twitter:description content="Another project reports"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},displayAlign:"center"}</script><link rel=stylesheet href=/lib/pseudocode/pseudocode.min.css><script src=/lib/pseudocode/pseudocode.min.js></script><link rel=stylesheet type=text/css href=/hugo-cite.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>hft</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
 <span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/cv.pdf><li class=mobile-menu-item>CV</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>hft</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/cv.pdf>CV</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>State-of-the-art review</h1><div class=post-meta><span class=post-time>05-20-2022</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a><ul><li><a href=#graphs>Graphs</a></li><li><a href=#graph-laplacian>Graph Laplacian</a></li><li><a href=#quadratic-forms-of-a-laplacian>Quadratic forms of a Laplacian</a></li><li><a href=#spectral-sparsification>Spectral Sparsification</a><ul><li></li></ul></li></ul></li><li><a href=#seq:classical_sparsification>Classical Sparsification Algorithm</a><ul><li><a href=#effective-resistance>Effective resistance</a></li><li><a href=#graph-spanner>Graph spanner</a><ul><li></li></ul></li></ul></li><li><a href=#quantum-speed-up-for-graph-sparsification>Quantum speed-up for graph sparsification</a><ul><li><a href=#quantum-spanner-algorithm>Quantum spanner algorithm</a><ul><li><a href=#classical-spanner-algorithm>Classical spanner algorithm</a></li><li><a href=#quantum-spanner-algorithm-1>Quantum spanner algorithm</a></li></ul></li><li><a href=#implicit-construction-of-the-graph-though-a-string>Implicit construction of the graph though a <em>string</em></a><ul><li></li></ul></li><li><a href=#time-improvement-of-quantum-sparsification>Time improvement of quantum sparsification</a><ul><li><a href=#approximate-resistance-oracle-and-spectral-sparsification>Approximate resistance oracle and spectral sparsification</a></li><li><a href=#edge-sampling>Edge sampling</a></li><li><a href=#refined-quantum-sparsification-algorithm>Refined quantum sparsification algorithm</a></li></ul></li></ul></li><li><a href=#ap:qram>QRAM Model</a></li><li><a href=#bibliography>Bibliography</a></li></ul></nav></div></div><div class=post-content><p>This report presents a review of a paper written by
 <span class=hugo-cite-intext itemprop=citation>(<span class=hugo-cite-group>
@@ -12,7 +12,7 @@
 </span></span>)</span>
 in which a new quantum algorithm for graph sparsification relying on nearly
 linear classical algorithms is introduced, leading to quantum speedups for
-several problems such as extremal cuts and Laplacian solving.</p><p><include src=../header.html></include></p><link rel=stylesheet type=text/css href={{ /hugo-cite.css" | relurl }}"><h1 id=introduction>Introduction</h1><p>$$\textit{" Graphs are nice [&mldr;], but sparse graphs are nicer. &ldquo;}$$</p><p>Graphs are a very common data structure in many areas of computer
+several problems such as extremal cuts and Laplacian solving.</p><h1 id=introduction>Introduction</h1><p>$$\textit{" Graphs are nice [&mldr;], but sparse graphs are nicer. &ldquo;}$$</p><p>Graphs are a very common data structure in many areas of computer
 science, such as optimization and networks. Many practical problems can
 indeed be reduced to graph problems, and as such are of interest to
 computer scientists. Recent works, such as that by Chen <em>et al.</em>,
@@ -93,7 +93,7 @@ value of the cut $(S, S^c)$.</p><h2 id=spectral-sparsification>Spectral Sparsifi
 while keeping an approximation of interesting quantities i.e.,
 approximately preserving all quadratic forms.</p><h4 id=definition>Definition</h4><h5 id=varepsilon-sparsifier>$\varepsilon$-sparsifier</h5><p>H is an $\varepsilon$-sparsifier of G if and only if for all $\chi \in \mathbb{R}^n$n
 the following holds:
-$$\mathbb{R}, \chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi \ .$$</p><p>Using the pseudo-inverse of the Laplacian, this definition can be
+$$\chi^T L_H \chi= (1 \pm \varepsilon)\chi^T L_G \chi \ .$$</p><p>Using the pseudo-inverse of the Laplacian, this definition can be
 equivalently formulated as
 $\chi L_H^+ = (1 \pm O(\varepsilon)) \chi L_G^+\chi$. It is also
 possible to define an $\varepsilon$-spectral sparsifier taking into
@@ -195,12 +195,19 @@ for the graph $G - \bigcup_{j=1}^{i-1} H_j$.</p><p>Koutis and Xu proposed the fo
 </span></span>)</span>
 ,
 using the effective resistance of each edge as exhibited by Spielman and
-Srivastava to construct $t$-packings spanner of the input graph:</p><p>::: algorithm
-::: algorithmic
-<em>construct an $O(\frac{\log n}{\varepsilon^2})$-packing spanner $H$ of
-$G$</em> $\tilde{G} \leftarrow H$<br><em>$;$ w.p. $\frac{1}{4}$ add e to $\tilde{G}$, with weight $4\omega_e$</em><br>$\tilde{G}$
-:::
-:::</p><p>and provided the following theorem:</p><h4 id=thmClassicalSparsifier>Theorem</h4><h5 id=classical-sparsifier>Classical sparsifier</h5><p>The output $\tilde{G}$ of <strong>ClassicallySparsify</strong> on inputs $G$ and
+Srivastava to construct $t$-packings spanner of the input graph:</p><pre class=algorithm style=display:none>
+\begin{algorithm}
+    \caption{\textbf{ClassicallySparsify}($G,\epsilon$)}
+    \begin{algorithmic}
+    \STATE \textit{construct an $O(\frac{\log n}{\epsilon ^2})$-packing spanner $H$ of $G$}
+    \STATE $\tilde{G} \leftarrow H $
+    \ForAll{$e \notin H$}
+    \STATE \textit{w.p. $\frac{1}{4}$ add e to $\tilde{G}$, with weight $4\omega_e$}
+    \EndFor
+    \RETURN $\tilde{G}$
+    \end{algorithmic}
+\end{algorithm}
+</pre><p>and provided the following theorem:</p><h4 id=thmClassicalSparsifier>Theorem</h4><h5 id=classical-sparsifier>Classical sparsifier</h5><p>The output $\tilde{G}$ of <strong>ClassicallySparsify</strong> on inputs $G$ and
 $\varepsilon$ satisfies with probability $1 - \frac{1}{n^2}$ $$(1 - \varepsilon)
 L_G \preccurlyeq L_{\tilde{G}} \preccurlyeq (1 + \varepsilon) L_G$$ Moreover,
 the expected number of edges in $\tilde{G}$ is at most
@@ -294,7 +301,7 @@ such that for all nodes $v_S \in S$, the distance between $v_0$ and $v_S$ is the
 same as in the original graph $G$, and is minimal in $G$.</p><p>Their algorithm constructs a $(2k-1)$-spanner $H$ of $G$ with
 $O(k n^{1+1/k})$ edges, for some $k\in \mathbb{N}$. To do so, a family
 ${A_0,\dots, A_k}$ of node subsets is generated at random such that
-$A_0=V$, $A_k = \emptyset$ and for all $i&lt;k$, $$\label{eq:ai-spanner}
+$A_0=V$, $A_k = \emptyset$ and for all $i &lt; k$, $$\label{eq:ai-spanner}
 A_i = {v \in A_{i-1}\ w.p.\ n^{-1/k}} \text{ ,}$$</p><p>i.e., $A_i$ contains each edge of the previous subset with probability
 $n^{-1/k}$. At each iteration $i\leq k$, for all nodes
 $v \notin A_i \cap A_{i-1}$, a shortest path tree $\mathcal T(v)$
@@ -329,7 +336,7 @@ tree algorithm is the <em>minimum finding</em> quantum algorithm
 $\text{MINFIND}(d,f,g)$, which takes as inputs</p><ul><li><p>a <em>value</em> function $f : [N] \rightarrow \mathbb{R} \cup {\infty}$</p></li><li><p>a <em>type</em> function $g : [N] \rightarrow \mathbb{N}$</p></li><li><p>an integer $d \leq \dfrac N2$</p></li></ul><p>and outputs a subset $I \subseteq [N]$ of size $|I| = \min{d,M}$,
 where $M = |Im(g)|$, such that every distinct elements of $I$ have a
 different type, i.e. for all $i,j \in I$ $$g(i) \neq g(j)\ ,$$ and for
-$j\notin I$ and $i \in I$, having $f(j)&lt;f(i)$ implies that there exists
+$j\notin I$ and $i \in I$, having $f(j) &lt; f(i)$ implies that there exists
 an $i&rsquo; \in I$ so that $$f(i&rsquo;)\leq f(i) \text{ and } g(i&rsquo;)= g(j)\ ,$$
 i.e., $j$ and $i&rsquo;$ have the same type.</p><p>Let $P_L$ be a subset of nodes and $E(P_L)$ the set of edges such that
 $\forall (u,v) \in E(P_L)$, $u \in P_L \text{ or } v \in P_L$. In
@@ -342,29 +349,12 @@ cost(u,v)=dist(u) + \frac{1}{w(u,v)} & \text{if } u\in P_L,, v\notin T \\\
 \end{cases}$$</p><p>In other words, we are looking for a subset of the border edges of the
 set of nodes $P_L$ that contains at most one edge for each node in
 $P_L$, and if several edges are possible, the least costly is kept. A
-brief explanation follows.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=err>$</span><span class=n>T</span> <span class=o>=</span><span class=p>(</span> <span class=n>V_T</span><span class=o>=</span><span class=err>\</span><span class=p>{</span><span class=n>v_0</span><span class=err>\</span><span class=p>},</span> <span class=n>E_T</span> <span class=o>=</span><span class=err>\</span><span class=n>emptyset</span><span class=p>)</span><span class=err>$</span> <span class=err>$</span><span class=n>P_1</span> <span class=o>=</span> <span class=err>\</span><span class=p>{</span><span class=n>v_0</span><span class=err>\</span><span class=p>}</span><span class=err>$</span> <span class=n>and</span> <span class=err>$</span><span class=n>L</span><span class=o>=</span><span class=mi>1</span><span class=err>$</span>
-</span></span><span class=line><span class=cl><span class=n>set</span> <span class=err>$\</span><span class=n>text</span><span class=p>{</span><span class=n>dist</span><span class=p>}(</span><span class=n>v_0</span><span class=p>)</span> <span class=o>=</span> <span class=mi>0</span><span class=err>$</span> <span class=n>and</span> <span class=err>$\</span><span class=n>forall</span> <span class=n>u</span><span class=err>\</span><span class=n>in</span> <span class=n>V</span><span class=p>,</span> <span class=n>u</span> <span class=err>\</span><span class=n>neq</span> <span class=n>v_0</span><span class=err>$</span><span class=p>,</span>
-</span></span><span class=line><span class=cl><span class=err>$\</span><span class=n>text</span><span class=p>{</span><span class=n>dist</span><span class=p>}(</span><span class=n>u</span><span class=p>)</span> <span class=o>=</span> <span class=err>\</span><span class=n>infty</span><span class=err>$</span><span class=p>.</span>
-</span></span><span class=line><span class=cl><span class=err>$</span><span class=n>B_L</span> <span class=o>=</span> <span class=err>\</span><span class=n>text</span><span class=p>{</span><span class=n>MINFIND</span><span class=p>}(</span><span class=o>|</span><span class=n>P_L</span><span class=o>|</span><span class=p>,</span><span class=n>f</span><span class=p>,</span><span class=n>g</span><span class=p>)</span><span class=err>$</span> <span class=n>Let</span>
-</span></span><span class=line><span class=cl><span class=err>$</span><span class=p>(</span><span class=n>u</span><span class=p>,</span><span class=n>v</span><span class=p>)</span> <span class=err>\</span><span class=n>in</span> <span class=n>B_1</span> <span class=err>\</span><span class=n>cup</span> <span class=err>\</span><span class=n>dots</span> <span class=err>\</span><span class=n>cup</span> <span class=n>B_L</span><span class=err>$</span> <span class=n>have</span> <span class=n>minimal</span> <span class=err>$\</span><span class=n>text</span><span class=p>{</span><span class=n>cost</span><span class=p>}(</span><span class=n>u</span><span class=p>,</span><span class=n>v</span><span class=p>)</span><span class=err>$</span> <span class=n>with</span>
-</span></span><span class=line><span class=cl><span class=err>$</span><span class=n>v</span><span class=err>\</span><span class=n>notin</span> <span class=n>P_1</span> <span class=err>\</span><span class=n>cup</span> <span class=err>\</span><span class=n>dots</span> <span class=err>\</span><span class=n>cup</span> <span class=n>P_L</span><span class=err>$</span><span class=p>.</span> <span class=err>$\</span><span class=n>mathcal</span><span class=p>{</span><span class=n>T</span><span class=p>}</span><span class=err>$</span>
-</span></span><span class=line><span class=cl><span class=err>$</span><span class=n>V_T</span> <span class=err>\</span><span class=n>leftarrow</span> <span class=n>V_T</span> <span class=err>\</span><span class=n>cup</span> <span class=err>\</span><span class=p>{</span><span class=n>v</span><span class=err>\</span><span class=p>}</span><span class=err>$</span> <span class=p>,</span> <span class=err>$</span><span class=n>E_T</span> <span class=err>\</span><span class=n>leftarrow</span> <span class=n>E_T</span> <span class=err>\</span><span class=n>cup</span> <span class=err>\</span><span class=p>{(</span><span class=n>u</span><span class=p>,</span><span class=n>v</span><span class=p>)</span><span class=err>\</span><span class=p>}</span><span class=err>$</span>
-</span></span><span class=line><span class=cl><span class=err>$\</span><span class=n>text</span><span class=p>{</span><span class=n>dist</span><span class=p>}(</span><span class=n>v</span><span class=p>)</span> <span class=o>=</span> <span class=err>\</span><span class=n>text</span><span class=p>{</span><span class=n>dist</span><span class=p>}(</span><span class=n>u</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=o>/</span><span class=n>w</span><span class=p>(</span><span class=n>u</span><span class=p>,</span><span class=n>v</span><span class=p>)</span><span class=err>$</span> <span class=err>$</span><span class=n>P_</span><span class=p>{</span><span class=n>L</span><span class=o>+</span><span class=mi>1</span><span class=p>}</span> <span class=err>\</span><span class=n>leftarrow</span> <span class=err>\</span><span class=p>{</span><span class=n>v</span><span class=err>\</span><span class=p>}</span><span class=err>$</span>
-</span></span><span class=line><span class=cl><span class=p>,</span> <span class=err>$</span><span class=n>L</span><span class=err>\</span><span class=n>leftarrow</span> <span class=n>L</span><span class=o>+</span><span class=mi>1</span><span class=err>$</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=o>*</span><span class=n>merge</span> <span class=err>$</span><span class=n>P_L</span><span class=err>$</span> <span class=n>into</span> <span class=err>$</span><span class=n>P_</span><span class=p>{</span><span class=n>L</span><span class=o>-</span><span class=mi>1</span><span class=p>}</span><span class=err>$</span><span class=o>*</span> <span class=err>$</span><span class=n>L</span> <span class=err>\</span><span class=n>leftarrow</span> <span class=n>L</span><span class=o>-</span><span class=mi>1</span><span class=err>$</span>
-</span></span></code></pre></td></tr></table></div></div><p>In [Algorithm
+brief explanation follows.</p><div class=algo>$T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$<br><p>set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
+$\text{dist}(u) = \infty$.<br></p><p>$B_L = \textsc{MINFIND}(|P_L|,f,g)$<br>Let $(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$ with
+$v\notin P_1 \cup \dots \cup P_L$.<br>$\mathcal{T}$
+$V_T \leftarrow V_T \cup {v}$ , $E_T \leftarrow E_T \cup {(u,v)}$
+$\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow {v}$
+, $L\leftarrow L+1$</p><p>Name of the algorithm</p></div><p>In [Algorithm
 <a href=#alg:quantum_spt>[alg:quantum_spt]</a>{reference-type=&ldquo;ref&rdquo;
 reference=&ldquo;alg:quantum_spt&rdquo;}](#alg:quantum_spt), a set of $L$ partitions
 ${P_l}_{l=1}^L$ of the vertices covered by the shortest path tree
@@ -474,16 +464,7 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e&rsquo; =
 \begin{cases}
 4^{i-k}\omega_e & \text{if } \bigvee\limits_{l=1}^{j+1} r_l(e) = 1 \\\
 0 & \text{otherwise,}
-\end{cases}$$ where $\vee$ is the logical disjunction.</p><p>::: algorithm
-::: algorithmic
-$\forall e, ; w_e&rsquo; = w_e$ and $l=\lceil \log\frac mn \rceil$
-$\forall i\in[\log(m/n)], ; r_i \in {0,1}^m$, <em>create $H_i$, union of
-an $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners of
-$G&rsquo; = (V,E,w&rsquo;)$</em> $w_e&rsquo; \leftarrow 4,w_e&rsquo;$ <em>use repeated Grover search
-to find $\tilde{E} = { e \in E | w_e^{&rsquo;} > 0}$ the edges of
-$\tilde{G}$</em> $\tilde{G}$
-:::
-:::</p><p>Intuitively, the unions of the
+\end{cases}$$ where $\vee$ is the logical disjunction.</p><p>Intuitively, the unions of the
 $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners select the
 <em>most</em> important edges of the graph, and the conditional reweighting
 (Steps 4,5) is a way of keeping a fraction of the remaining edges in
@@ -826,7 +807,7 @@ Pagh & Thorup
 (<span itemprop=datePublished>2015</span>).
  <span itemprop=name>Secure identity-based encryption in the quantum random oracle model</span>.<i>
 <span itemprop=about>International Journal of Quantum Information</span>, 13(04)</i>. <span itemprop=pagination>1550014</span>.
-<a href=https://doi.org/10.1142/S0219749915500148 itemprop=identifier itemtype=https://schema.org/URL>https://doi.org/10.1142/S0219749915500148</a></span></dd></div></dl></section><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>A border edge $(i,j)$ of $\mathcal T$ is so that $i\in \mathcal T$
+<a href=https://doi.org/10.1142/S0219749915500148 itemprop=identifier itemtype=https://schema.org/URL>https://doi.org/10.1142/S0219749915500148</a></span></dd></div></dl></section><p><a href=./resources/graph-sparsification.pdf><em>get the original pdf</em></a></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>A border edge $(i,j)$ of $\mathcal T$ is so that $i\in \mathcal T$
 and $j \notin \mathcal T$.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>See for details about the QRAM model used herein.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>i.e. with $n$ edges&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>Let $\tilde{W}$ be the random variable such that
 $P(\tilde{W}= \tilde{w_e}) = p_e$ and $P(\tilde{W}= {0}) = 1 - p_e$.
 Then the expectation value of $\tilde{W}$ is
@@ -834,7 +815,7 @@ $\mathbb{E}(\tilde{W}) = p_e \tilde{w_e} + (1-p_e) \times 0 = p_e \tilde{w_e}$.&
 <span class=item-content>Hugo Abreu, Fanny Terrier, Hugo Thomas</span></p><p class=copyright-item><span class=item-title>LastMod</span>
 <span class=item-content>05-20-2022</span></p></div><footer class=post-footer><nav class=post-nav><a class=next href=/post/l-systems/><span class="next-text nav-default">L-systems - Computer Graphics assignment @ Sorbonne Université</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=https://github.com/thmhugo/ class="iconfont icon-github" title=github></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><script>document.addEventListener("keydown",e=>{var t=e.key,n=e.code;t=="s"&&console.log(`Key pressed ${t}`)},!1)</script><div class=social-links><a href=https://github.com/thmhugo/ class="iconfont icon-github" title=github></a>
 <a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
 <a href=https://thmhugo.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
@@ -842,7 +823,7 @@ $\mathbb{E}(\tilde{W}) = p_e \tilde{w_e} + (1-p_e) \times 0 = p_e \tilde{w_e}$.&
 <a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
 <span class=copyright-year>&copy;
 2022<span> |</span>
-<span>Hugo Thomas</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<span>Hugo Thomas</span></span></div><script>var algorithms=document.getElementsByClassName("algorithm"),algorithm;for(algorithm of algorithms)pseudocode.renderElement(algorithm,{lineNumber:!0,noEnd:!0})</script></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
 <script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
 <script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script>
 <script type=text/javascript src=/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js></script>
