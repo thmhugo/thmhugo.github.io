@@ -64,13 +64,8 @@
 
 
 <script>
-  var algorithms = document.getElementsByClassName('algorithm');
-  for (var algorithm of algorithms) {
-      pseudocode.renderElement(
-        algorithm,
-            {
-                lineNumber: true,
-                noEnd: true,
-            });
-  }
+    pseudocode.renderClass("algorithm", {
+      lineNumber: true,
+      noEnd: true,
+    });
 </script>

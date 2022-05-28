@@ -92,26 +92,13 @@
 
 
 
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-</script>
-<script>
-  MathJax = {
-      tex: {
-          inlineMath: [['$','$'], ['\\(','\\)']],
-          displayMath: [['$$','$$'], ['\\[','\\]']],
-          processEscapes: true,
-          processEnvironments: true,
-      },
-      displayAlign: "center"
-  };
-</script>
+
+{{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
 
 <link rel="stylesheet" href="/lib/pseudocode/pseudocode.min.css">
-<script src="/lib/pseudocode/pseudocode.min.js">
-</script> <!-- Algorithms are compiled in the footer -->
+<script type="text/javascript" src="/lib/pseudocode/pseudocode.min.js"></script>
+<!-- Algorithms are compiled in the footer -->
 
 
 <link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
 
-<!-- <script src="/lib/mathjax/es5/tex-chtml.js" id="MathJax-script" async></script> -->
