@@ -84,10 +84,10 @@ copyright = ""            # default: author.name ↓
   fancybox = true           # see https://github.com/fancyapps/fancybox
 
   # mathjax
-  mathjax = true           # see https://www.mathjax.org/
-  mathjaxEnableSingleDollar = true
-  mathjaxEnableAutoNumber = true
-  mathjaxUseLocalFiles = true  # You should install mathjax in `your-site/static/lib/mathjax`
+  # mathjax = true           # see https://www.mathjax.org/
+  # mathjaxEnableSingleDollar = true
+  # mathjaxEnableAutoNumber = true
+  # mathjaxUseLocalFiles = false  # You should install mathjax in `your-site/static/lib/mathjax`
 
   postMetaInFooter = true   # contain author, lastMod, markdown link, license
   linkToMarkDown = false    # Only effective when hugo will output .md files.
