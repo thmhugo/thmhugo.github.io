@@ -56,7 +56,6 @@ h5+p:before {
 
 .fig-table-container p em {
     content: "Figure " counter(figures) " : ";
-    /* On affiche le compteur */
 }
 
 .fig-table-container {
@@ -84,20 +83,8 @@ h5+p:before {
 
 .caption:before {
     content: "Figure " counter(figures) " : ";
-    /* On affiche le compteur */
 }
 
 .hugo-cite-citation {
     display: none;
 }
-
-
-// // What a bad fix :/
-// .hugo-cite-group:before {
-//     content: "[";
-// }
-
-// // What a bad fix :/
-// .hugo-cite-group:after {
-//     content: " ]";
-// }
