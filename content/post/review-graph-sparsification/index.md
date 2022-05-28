@@ -3,6 +3,7 @@ title : "State-of-the-art review"
 description : "Another project reports"
 date : 2022-05-20
 author : "Hugo Abreu, Fanny Terrier, Hugo Thomas"
+mathjax: true
 ---
 
 
@@ -78,8 +79,8 @@ connected. Equivalently, the Laplacian of a graph can be expressed in
 terms of a weighted sum of its edges Laplacian:
 $$L_Q = \sum_{(i,j)\in E} \omega(i,j)L_{(i,j)}$$ where $L_{(i,j)}$
 denotes the Laplacian of the edge $(i,j)$, defined as
-$$L_{(i,j)} = (\boldsymbol e_i - \boldsymbol e_j)(\boldsymbol e_i - \boldsymbol e_j)^T$$
-$\boldsymbol e_i$ is a unit vector with a 1 in coordinate $i$ and zeros
+$$L_{(i,j)} = (\mathbf e_i - \mathbf e_j)(\mathbf e_i - \mathbf e_j)^T$$
+$\mathbf e_i$ is a unit vector with a 1 in coordinate $i$ and zeros
 everywhere else. One can remark that $L_{(i,j)}$ is a very sparse
 matrix, with only 4 nonzero entries.
 
@@ -211,17 +212,17 @@ Koutis and Xu proposed the following algorithm {{< cite koutis_simple_2016 >}},
 using the effective resistance of each edge as exhibited by Spielman and
 Srivastava to construct $t$-packings spanner of the input graph:
 
-<pre class="algorithm" style="display:none">
+<pre class="algorithm" id='cs'>
 \begin{algorithm}
-    \caption{\textbf{ClassicallySparsify}($G,\epsilon$)}
-    \begin{algorithmic}
-    \STATE \textit{construct an $O(\frac{\log n}{\epsilon ^2})$-packing spanner $H$ of $G$}
-    \STATE $\tilde{G} \leftarrow H $
-    \ForAll{$e \notin H$}
+\caption{\textbf{ClassicallySparsify}($G,\epsilon$)}
+\begin{algorithmic}
+\STATE \textit{construct an $O(\frac{\log n}{\epsilon ^2})$-packing spanner $H$ of $G$}
+\STATE $\tilde{G} \leftarrow H $
+\FORALL{$e \notin H$}
     \STATE \textit{w.p. $\frac{1}{4}$ add e to $\tilde{G}$, with weight $4\omega_e$}
-    \EndFor
-    \RETURN $\tilde{G}$
-    \end{algorithmic}
+\ENDFOR
+\RETURN $\tilde{G}$
+\end{algorithmic}
 \end{algorithm}
 </pre>
 and provided the following theorem:
@@ -272,8 +273,8 @@ introduced before the quantum one.
 
 ### Classical spanner algorithm
 
-In order to efficiently construct a graph spanner, {{< cite Thorup_Zwick_2005 >}} designed a classical algorithm based on
-shortest-path trees.
+In order to efficiently construct a graph spanner, {{< cite Thorup_Zwick_2005 >}}
+designed a classical algorithm based on shortest-path trees.
 
 #### Definition
 ##### Shortest-path tree
@@ -341,23 +342,35 @@ set of nodes $P_L$ that contains at most one edge for each node in
 $P_L$, and if several edges are possible, the least costly is kept. A
 brief explanation follows.
 
+<pre class="algorithm" id = 'qspt'>
+\begin{algorithm}
+\caption{\textbf{QuantumSPT}($G=(V,E),v_0$)}
+\begin{algorithmic}
+\REQUIRE $T =( V_T=\{v_0\}, E_T =\emptyset) $
+\REQUIRE $P_1 = \{v_0\}$ and $L=1$
 
-<div class="algo">
-$T =( V_T=\{v_0\}, E_T =\emptyset)$ $P_1 = \{v_0\}$ and $L=1$ <br>
+\STATE  set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$, $\text{dist}(u) = \infty$
 
-set $\text{dist}(v_0) = 0$ and $\forall u\in V, u \neq v_0$,
-$\text{dist}(u) = \infty$. <br>
+\WHILE{$|V_T| < n$}
+    \STATE $B_L = \text{MINFIND}(|P_L|,f,g)$
+    \STATE \textit{Let $(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$
+        with $v\notin P_1 \cup \dots \cup P_L$}
+    \IF{$w(u,v)=0$}
+        \RETURN $\mathcal{T}$
+    \ELSE
+        \STATE $V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
+        \STATE $\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$
+        \STATE $P_{L+1} \leftarrow \{v\}$ , $L \leftarrow L+1$
+    \ENDIF
 
-$B_L = \textsc{MINFIND}(|P_L|,f,g)$ <br>
-Let  $(u,v) \in B_1 \cup \dots \cup B_L$ have minimal $\text{cost}(u,v)$ with
-$v\notin P_1 \cup \dots \cup P_L$. <br>
-$\mathcal{T}$
-$V_T \leftarrow V_T \cup \{v\}$ , $E_T \leftarrow E_T \cup \{(u,v)\}$
-$\text{dist}(v) = \text{dist}(u) + 1/w(u,v)$ $P_{L+1} \leftarrow \{v\}$
-, $L\leftarrow L+1$
-<p> Name of the algorithm </p>
-</div>
-
+    \WHILE{ $L \geq 2$ and $|P_L| = |P_{L-1}|$}
+        \STATE \textit{merge $P_L$ into $P_{L-1}$}
+        \STATE $L \leftarrow L-1$
+    \ENDWHILE
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+</pre>
 
 In [Algorithm
 [\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
@@ -379,6 +392,25 @@ effectively selected, thus the correctness of the algorithm (see
 {{< cite apers_quantum_2019 >}} Appendix A, Proposition 5}). As a side note, at
 each step $V_{\mathcal{T}}$ contains the growing tree.
 
+<pre class="algorithm">
+\begin{algorithm}
+\caption{\textbf{QuantumSpanner$(G=(V,E), k)$}}
+\begin{algorithmic}
+\REQUIRE $A_0 = V$ ans $A_k = \emptyset$
+\ENSURE \textit{$H$ is initially an empty graph}
+\FOR {$i=1, \cdots, k$}
+    \IF{$i < k$}
+        \STATE \textit{set $A_i$ such as defined in $\cdots$}
+    \ENDIF
+    \FORALL{$v \in A_{i-1} - A_i$}
+        \STATE $\mathcal T \leftarrow \mathbf{QuantumSPT}(G, v)$
+        \STATE $H \leftarrow H \cup \mathcal T$
+    \ENDFOR
+\ENDFOR
+\RETURN H
+\end{algorithmic}
+\end{algorithm}
+</pre>
 #### Theorem {#thm:comp-spt}
 In the worst case, [Algorithm
 [\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
@@ -392,22 +424,12 @@ can conclude on the overall time complexity of [Algorithm
 reference="alg:quantum-spanner"}](#alg:quantum-spanner).
 
 #### Theorem {#thmqSpanner}
-There exists a quantum algorithm that outputs in time
-$\tilde{O}(k n^{1/k} \sqrt{mn})$ with high probability a
-$(2k-1)$-spanner of $G$ with an expected number of edges
-$O(k n^{1+1/k})$. *
-:::
+There exists a quantum algorithm that outputs in time $\tilde{O}(k n^{1/k}
+\sqrt{mn})$ with high probability a $(2k-1)$-spanner of $G$ with an expected
+number of edges $O(k n^{1+1/k})$.
 
-::: algorithm
-[]{#alg:quantum-spanner label="alg:quantum-spanner"}
 
-::: algorithmic
-$A_0 = V$ ans $A_k = \emptyset$ *$H$ is initially an empty graph* *set
-$A_i$ such as defined in  *
-$\mathcal T \leftarrow \mathbf{QuantumSPT}(G, v)$
-$H \leftarrow H \cup \mathcal T$ H
-:::
-:::
+
 
 To conclude, setting $k= \log n + 1/2$, one can construct
 $(2 \log n)$-spanners of an input graph with $n$ nodes and $m$ edges in
@@ -481,18 +503,30 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e' =
     0 & \text{otherwise,}
     \end{cases}$$ where $\vee$ is the logical disjunction.
 
-<!-- ::: algorithm
-::: algorithmic
-$\forall e, \; w_e' = w_e$ and $l=\lceil \log\frac mn \rceil$
-$\forall i\in[\log(m/n)], \; r_i \in \{0,1\}^m$, *create $H_i$, union of
-an $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners of
-$G' = (V,E,w')$* $w_e' \leftarrow 4\,w_e'$ *use repeated Grover search
-to find $\tilde{E} = \{ e \in E | w_e^{'} > 0\}$ the edges of
-$\tilde{G}$* $\tilde{G}$
-:::
-:::
- -->
-
+<pre class="algorithm">
+\begin{algorithm}
+\caption{\textbf{QuantumSparsify}($G,\epsilon$)}
+\begin{algorithmic}
+\REQUIRE $\forall e, \; w_e' = w_e$ and $l=\lceil \log\frac mn \rceil$
+\REQUIRE $\forall i\in[\log(m/n)], \; r_i \in \{0,1\}^m$, \Comment{A family of
+random strings such that all bits are independent and equal to 1 w.p. $\frac{1}{4}$.}
+% \ENSURE $\tilde{G}$ is an $\epsilon$-spectral sparsifier  of $G$ with $\tilde{O}(n/\epsilon^2)$ edges.
+\FOR{$i = 1,2,...,l$}
+    \STATE \textit{create $H_i$, union of an $O(\frac{\log^2 n}{\epsilon ^2})$-packing of
+            spanners of $G' = (V,E,w')$}
+    \FORALL{$e \notin H_i$}
+        \IF{$r_i(e) = 1$}
+            \STATE $w_e' \leftarrow 4\,w_e'$
+        \ELSE
+            \STATE $w_e' \leftarrow 0$
+        \ENDIF
+    \ENDFOR
+\ENDFOR
+\STATE \textit{use repeated Grover search to find $\tilde{E} = \{ e \in E | w_e^{'} > 0\}$ the edges of $\tilde{G}$ }
+\STATE \RETURN $\tilde{G}$
+\end{algorithmic}
+\end{algorithm}
+</pre>
 
 
 Intuitively, the unions of the
@@ -631,12 +665,19 @@ shows how one can sample a subset of edges that contains every edge $e$
 independently with probability $p_e$, in time
 $\tilde{O}(m + \sum_e p_e)$.
 
-::: algorithm
-::: algorithmic
-$S = \emptyset$ *approximate $\{p_e\}_{e\in E}$ using  * *add edge $e$
-to $S$ with probability $p_e$* S
-:::
-:::
+<pre class="algorithm">
+\begin{algorithm}
+\caption{\textbf{ClassicalEdgeSampling}($G,\epsilon$)}
+\begin{algorithmic}
+    \REQUIRE $S = \emptyset$
+    \STATE \textit{approximate $\{p_e\}_{e\in E}$ using $\cdots$}
+    \ForAll{$e \in E$}
+        \STATE \textit{add edge $e$ to $S$ with probability $p_e$ }
+    \EndFor
+    \RETURN S
+\end{algorithmic}
+\end{algorithm}
+</pre>
 
 A quantum algorithm could sample a subset of edges more efficiently. We
 assume we have access to a random string $r \in \{0,1\}^{\tilde{O}(m)}$
@@ -661,18 +702,20 @@ resistances of $G$ from $H$ using Laplacian solving, and then using
 quantum sampling in order to sample a subset containing
 $\tilde{O}(n/\varepsilon^2)$ edges.
 
-::: algorithm
-::: algorithmic
-*use [Algorithm
-[\[alg:quantum-sparsify\]](#alg:quantum-sparsify){reference-type="ref"
-reference="alg:quantum-sparsify"}](#alg:quantum-sparsify) to construct a
-$(1/100)$-spectral sparsifier $H$ of $G$* *create a
-$(1/100)$-approximate resistance oracle of $H$ using , yielding
-estimations $\tilde{R_e}$* *use quantum sampling to sample a subset of
-the edges, keeping every edge with probability $p_e =
-    min(1,Cw_e\tilde{R_e}\log(n)/\varepsilon^2)$*
-:::
-:::
+<pre class="algorithm">
+\begin{algorithm}
+\caption{\textbf{RefinedQuantumSparsify}($G,\epsilon$)}
+\begin{algorithmic}
+    \STATE \textit{use $\cdots$ to construct a $(1/100)$-spectral sparsifier $H$ of $G$}
+    \STATE \textit{create a $(1/100)$-approximate resistance oracle of
+        $H$ using $\cdots$, yielding estimations
+            $\tilde{R_e}$}
+    \STATE \textit{use quantum sampling to sample a subset of the
+        edges, keeping every edge with probability $\, p_e =
+        min(1,Cw_e\tilde{R_e}\log(n)/\epsilon^2)$}
+\end{algorithmic}
+\end{algorithm}
+</pre>
 
 The Step 1 of [Algorithm
 [\[alg:quantum-sparsify2\]](#alg:quantum-sparsify2){reference-type="ref"
