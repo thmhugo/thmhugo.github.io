@@ -1,3 +1,5 @@
+{{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
+
 <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h1>

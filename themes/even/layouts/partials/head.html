@@ -1,3 +1,16 @@
+
+
+{{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
+
+<link rel="stylesheet" href="/lib/pseudocode/pseudocode.min.css">
+<script type="text/javascript" src="/lib/pseudocode/pseudocode.min.js"></script>
+<!-- Algorithms are compiled in the footer -->
+
+
+<link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
+
+
+
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -91,14 +104,4 @@
 <![endif]-->` | safeHTML }}
 
 
-
-
-{{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
-
-<link rel="stylesheet" href="/lib/pseudocode/pseudocode.min.css">
-<script type="text/javascript" src="/lib/pseudocode/pseudocode.min.js"></script>
-<!-- Algorithms are compiled in the footer -->
-
-
-<link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
 
