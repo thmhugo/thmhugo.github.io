@@ -1,7 +1,7 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>State-of-the-art review - Hugo Thomas</title><script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:['script','noscript','style','textarea','pre']},displayAlign:"center"}</script><script type=text/javascript id=MathJax-script src=/lib/mathjax/es5/tex-svg-full.js></script>
-<link rel=stylesheet href=/lib/pseudocode/pseudocode.min.css><script type=text/javascript src=/lib/pseudocode/pseudocode.min.js></script>
+<link rel=stylesheet href=/lib/pseudocode/pseudocode.min.css><script type=text/javascript src=/lib/pseudocode/pseudocode.js></script>
 <script type=text/javascript src=/lib/references/references.js></script>
-<link rel=stylesheet type=text/css href=/hugo-cite.css><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Hugo Abreu, Fanny Terrier, Hugo Thomas"><meta name=description content="Another project reports"><meta name=keywords content="Quantum,algorithm,computer science"><meta name=generator content="Hugo 0.100.1 with theme even"><link rel=canonical href=https://thmhugo.github.io/post/review-graph-sparsification/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.c4602622276e99ca2b6bf5a50edf6f9c16500dba2f5954fe41c8dac00fa2ae65.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="State-of-the-art review"><meta property="og:description" content="Another project reports"><meta property="og:type" content="article"><meta property="og:url" content="https://thmhugo.github.io/post/review-graph-sparsification/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-05-20T00:00:00+00:00"><meta property="article:modified_time" content="2022-05-20T00:00:00+00:00"><meta itemprop=name content="State-of-the-art review"><meta itemprop=description content="Another project reports"><meta itemprop=datePublished content="2022-05-20T00:00:00+00:00"><meta itemprop=dateModified content="2022-05-20T00:00:00+00:00"><meta itemprop=wordCount content="5723"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="State-of-the-art review"><meta name=twitter:description content="Another project reports"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<link rel=stylesheet type=text/css href=/hugo-cite.css><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Hugo Abreu, Fanny Terrier, Hugo Thomas"><meta name=description content="Another project reports"><meta name=keywords content="Quantum,algorithm,computer science"><meta name=generator content="Hugo 0.100.1 with theme even"><link rel=canonical href=https://thmhugo.github.io/post/review-graph-sparsification/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.c4602622276e99ca2b6bf5a50edf6f9c16500dba2f5954fe41c8dac00fa2ae65.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="State-of-the-art review"><meta property="og:description" content="Another project reports"><meta property="og:type" content="article"><meta property="og:url" content="https://thmhugo.github.io/post/review-graph-sparsification/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-05-20T00:00:00+00:00"><meta property="article:modified_time" content="2022-05-20T00:00:00+00:00"><meta itemprop=name content="State-of-the-art review"><meta itemprop=description content="Another project reports"><meta itemprop=datePublished content="2022-05-20T00:00:00+00:00"><meta itemprop=dateModified content="2022-05-20T00:00:00+00:00"><meta itemprop=wordCount content="5692"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="State-of-the-art review"><meta name=twitter:description content="Another project reports"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>hft</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
 <span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/cv.pdf><li class=mobile-menu-item>CV</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>hft</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/cv.pdf>CV</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>State-of-the-art review</h1><div class=post-meta><span class=post-time>05-20-2022</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a><ul><li><a href=#graphs>Graphs</a></li><li><a href=#graph-laplacian>Graph Laplacian</a></li><li><a href=#quadratic-forms-of-a-laplacian>Quadratic forms of a Laplacian</a></li><li><a href=#spectral-sparsification>Spectral Sparsification</a><ul><li></li></ul></li></ul></li><li><a href=#seq:classical_sparsification>Classical Sparsification Algorithm</a><ul><li><a href=#effective-resistance>Effective resistance</a></li><li><a href=#graph-spanner>Graph spanner</a><ul><li></li></ul></li></ul></li><li><a href=#quantum-speed-up-for-graph-sparsification>Quantum speed-up for graph sparsification</a><ul><li><a href=#quantum-spanner-algorithm>Quantum spanner algorithm</a><ul><li><a href=#classical-spanner-algorithm>Classical spanner algorithm</a></li><li><a href=#quantum-spanner-algorithm-1>Quantum spanner algorithm</a></li></ul></li><li><a href=#implicit-construction-of-the-graph-though-a-string>Implicit construction of the graph though a <em>string</em></a><ul><li></li></ul></li><li><a href=#time-improvement-of-quantum-sparsification>Time improvement of quantum sparsification</a><ul><li><a href=#approximate-resistance-oracle-and-spectral-sparsification>Approximate resistance oracle and spectral sparsification</a></li><li><a href=#edge-sampling>Edge sampling</a></li><li><a href=#refined-quantum-sparsification-algorithm>Refined quantum sparsification algorithm</a></li></ul></li></ul></li><li><a href=#ap:qram>QRAM Model</a></li><li><a href=#bibliography>Bibliography</a></li></ul></nav></div></div><div class=post-content><p>This report presents a review of a paper written by
@@ -182,7 +182,7 @@ spanners are considered, i.e. $\beta = 0$ and $\alpha = 2 \log n$,
 namely, $2\log
 n$-spanners. Furthermore, key objects of the algorithm for graph
 $\varepsilon$-spectral sparsification described below are $r$-packings
-spanners.</p><h4 id=definition-2>Definition</h4><p>Let $G$ be a graph, an $r$-packings spanner of $G$ is an ordered set $H=(H_1,
+spanners.</p><h4 id=rPackingSpanner>Definition</h4><h5 id=r-packing-spanner>$r$-packing spanner</h5><p>Let $G$ be a graph, an $r$-packings spanner of $G$ is an ordered set $H=(H_1,
 \cdots, H_r)$ of $r$ edge-disjoint subgraphs of $G$ such that $H_i$ is a spanner
 for the graph $G - \bigcup_{j=1}^{i-1} H_j$.</p><p>Koutis and Xu proposed the following algorithm
 <span class=hugo-cite-intext itemprop=citation>(<span class=hugo-cite-group>
@@ -224,9 +224,7 @@ $\tilde{O}(\frac{1}{\varepsilon^2})$ spanners, each of which requires
 time $\tilde{O}(m)$, giving a total time complexity of
 $\tilde{O}(\frac{m}{\varepsilon^2})$.</p><h1 id=quantum-speed-up-for-graph-sparsification>Quantum speed-up for graph sparsification</h1><p>Apers and de Wolf propose a quantum analog to the sparsificationalgorithm described in . They build on results from classical and
 quantum algorithms, in particular the classical algorithm for
-sparsification by Koutis and Xu ([Algorithm
-<a href=#alg:classical-sparsify>[alg:classical-sparsify]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:classical-sparsify&rdquo;}](#alg:classical-sparsify)), the
+sparsification by Koutis and Xu <span class=autoref>cs</span>, the
 spanner algorithm by
 <span class=hugo-cite-intext itemprop=citation>(<span class=hugo-cite-group>
 <a href=#thorup_zwick_2005><span class=visually-hidden>Citation: </span><span itemprop=author itemscope itemtype=https://schema.org/Person><meta itemprop=givenName content="Mikkel"><span itemprop=familyName>Thorup</span></span> & <span itemprop=author itemscope itemtype=https://schema.org/Person><meta itemprop=givenName content="Uri"><span itemprop=familyName>Zwick</span></span>, <span itemprop=datePublished>2005</span></a><span class=hugo-cite-citation>
@@ -295,7 +293,7 @@ introduced before the quantum one.</p><h3 id=classical-spanner-algorithm>Classic
 <span itemprop=about>J. ACM</span>, 52(1)</i>. <span itemprop=pagination>1–24</span>.
 <a href=https://doi.org/10.1145/1044731.1044732 itemprop=identifier itemtype=https://schema.org/URL>https://doi.org/10.1145/1044731.1044732</a></span>
 </span></span>)</span>
-designed a classical algorithm based on shortest-path trees.</p><h4 id=definition-3>Definition</h4><h5 id=shortest-path-tree>Shortest-path tree</h5><p>Inside a graph $G=(V,E)$, a shortest path tree $\mathcal T$, rooted at a node
+designed a classical algorithm based on shortest-path trees.</p><h4 id=definition-2>Definition</h4><h5 id=shortest-path-tree>Shortest-path tree</h5><p>Inside a graph $G=(V,E)$, a shortest path tree $\mathcal T$, rooted at a node
 $v_0$ and covering a subset $S\subseteq V$ of vertices, is a subgraph of $G$
 such that for all nodes $v_S \in S$, the distance between $v_0$ and $v_S$ is the
 same as in the original graph $G$, and is minimal in $G$.</p><p>Their algorithm constructs a $(2k-1)$-spanner $H$ of $G$ with
@@ -340,8 +338,7 @@ $j\notin I$ and $i \in I$, having $f(j) &lt; f(i)$ implies that there exists
 an $i&rsquo; \in I$ so that $$f(i&rsquo;)\leq f(i) \text{ and } g(i&rsquo;)= g(j)\ ,$$
 i.e., $j$ and $i&rsquo;$ have the same type.</p><p>Let $P_L$ be a subset of nodes and $E(P_L)$ the set of edges such that
 $\forall (u,v) \in E(P_L)$, $u \in P_L \text{ or } v \in P_L$. In
-[Algorithm <a href=#alg:quantum_spt>[alg:quantum_spt]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum_spt&rdquo;}](#alg:quantum_spt), the functions $f$ and
+<span class=autoref>qspt</span>, the functions $f$ and
 $g$ are both defined on $E(P_L)$, in such a way that $g((u,v)) = v$ and
 $$f((u,v)) = \begin{cases}
 cost(u,v)=dist(u) + \frac{1}{w(u,v)} & \text{if } u\in P_L,, v\notin T \\\
@@ -377,9 +374,7 @@ brief explanation follows.</p><pre class=algorithm id=qspt>
 \ENDWHILE
 \end{algorithmic}
 \end{algorithm}
-</pre><p>In [Algorithm
-<a href=#alg:quantum_spt>[alg:quantum_spt]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum_spt&rdquo;}](#alg:quantum_spt), a set of $L$ partitions
+</pre><p>In <span class=autoref>qspt</span>, a set of $L$ partitions
 ${P_l}_{l=1}^L$ of the vertices covered by the shortest path tree
 $\mathcal T$ is generated, and the algorithm stops only when
 $\mathcal T$ covers the connected component of $v_0$.</p><p>Step 1 initializes the distances, as does Dijkstra&rsquo;s algorithm. In Step
@@ -401,7 +396,7 @@ effectively selected, thus the correctness of the algorithm (see
 <a href=https://doi.org/10.48550/ARXIV.1911.07306 itemprop=identifier itemtype=https://schema.org/URL>https://doi.org/10.48550/ARXIV.1911.07306</a></span>
 </span></span>)</span>
 Appendix A, Proposition 5}). As a side note, at
-each step $V_{\mathcal{T}}$ contains the growing tree.</p><pre class=algorithm>
+each step $V_{\mathcal{T}}$ contains the growing tree.</p><pre class=algorithm id=quantum-spanner>
 \begin{algorithm}
 \caption{\textbf{QuantumSpanner$(G=(V,E), k)$}}
 \begin{algorithmic}
@@ -419,14 +414,10 @@ each step $V_{\mathcal{T}}$ contains the growing tree.</p><pre class=algorithm>
 \RETURN H
 \end{algorithmic}
 \end{algorithm}
-</pre><h4 id=thm:comp-spt>Theorem</h4><p>In the worst case, [Algorithm
-<a href=#alg:quantum_spt>[alg:quantum_spt]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum_spt&rdquo;}](#alg:quantum_spt) returns a shortest path tree
+</pre><h4 id=thm:comp-spt>Theorem</h4><p>In the worst case, <span class=autoref>qspt</span> returns a shortest path tree
 covering the graph $G=(V,E)$ in time $\tilde{O}(\sqrt{mn})$.*</p><p>More precisely, the running time depends on the size of the connected
 component in which the starting node $v_0$ is. Taking into account , one
-can conclude on the overall time complexity of [Algorithm
-<a href=#alg:quantum-spanner>[alg:quantum-spanner]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-spanner&rdquo;}](#alg:quantum-spanner).</p><h4 id=thmqSpanner>Theorem</h4><p>There exists a quantum algorithm that outputs in time $\tilde{O}(k n^{1/k}
+can conclude on the overall time complexity of <span class=autoref>quantum-spanner</span>.</p><h4 id=thmqSpanner>Theorem</h4><p>There exists a quantum algorithm that outputs in time $\tilde{O}(k n^{1/k}
 \sqrt{mn})$ with high probability a $(2k-1)$-spanner of $G$ with an expected
 number of edges $O(k n^{1+1/k})$.</p><p>To conclude, setting $k= \log n + 1/2$, one can construct
 $(2 \log n)$-spanners of an input graph with $n$ nodes and $m$ edges in
@@ -437,9 +428,7 @@ after a single iteration, the outputted graph could have up to
 $\frac m2\in O(n^2)$ edges (see e.g., ).</p><p>Apers and de Wolf address this issue by constructing a random string
 $r \in {0,1}^{m}$ encoding the discarded edges at some iteration with
 0-valued bits, and later implicitly setting the corresponding weights in
-the graph to 0, as shown in [Algorithm
-<a href=#alg:quantum-sparsify>[alg:quantum-sparsify]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-sparsify&rdquo;}](#alg:quantum-sparsify). This enables
+the graph to 0, as shown in <span class=autoref>quantum-sparsify</span>. This enables
 the construction of a spanner in the remaining graph. One can then use a
 Grover search to the undiscarded $\tilde{O}(n/\varepsilon^{2})$ edges,
 whose union forms the spectral sparsifier. In addition, it is possible
@@ -496,7 +485,7 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e&rsquo; =
 \begin{cases}
 4^{i-k}\omega_e & \text{if } \bigvee\limits_{l=1}^{j+1} r_l(e) = 1 \\\
 0 & \text{otherwise,}
-\end{cases}$$ where $\vee$ is the logical disjunction.</p><pre class=algorithm>
+\end{cases}$$ where $\vee$ is the logical disjunction.</p><pre class=algorithm id=quantum-sparsify>
 \begin{algorithm}
 \caption{\textbf{QuantumSparsify}($G,\epsilon$)}
 \begin{algorithmic}
@@ -526,9 +515,7 @@ $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners select the
 order to <em>spectrally</em> preserve the graph (i.e., asserts that in the end
 it effectively $(1+\varepsilon)$-approximates the input graph). In each
 iteration, the remaining graph is classically sparsified using
-[Algorithm
-<a href=#alg:classical-sparsify>[alg:classical-sparsify]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:classical-sparsify&rdquo;}](#alg:classical-sparsify). The
+<span class=autoref>cs</span>. The
 sparsified graph is the one induced by the vertices of the initial graph
 and the edges whose weight $w_e^{&rsquo;}$ is greater than $0$.</p><h4 id=proposition>Proposition</h4><p>The probability that all $\log \frac mn$ iterations succeed
 is $1 - O(\frac{\log n}{n^2})$.</p><p><em>Proof</em> : Let $p_s$ be the probability of success and $p_f$ be the probability of
@@ -541,18 +528,15 @@ $$\log \frac mn \in O\big(\log \frac{n^2}{n}\big) = O(\log n)\text{ ,}$$
 hence $$p_e = O\big(\frac{\log n}{n^2}\big)\text{ ,}$$ the result
 follows.
 :::</p><p>The overall time complexity of the algorithm depends on whether the
-$(r_i)_i$ are represented with a random string. By [Definition
-<a href=#def:packing-spanner>4</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;def:packing-spanner&rdquo;}](#def:packing-spanner), the set of
+$(r_i)_i$ are represented with a random string. By
+<a href=#rPackingSpanner>definition</a>, the set of
 spanners is assumed ordered, allowing to binary search through the set
 in time $\tilde{O}(1)$, and there is $O(i)$ calls to the aforementioned
 oracle. The algorithm requires $O(\log n)$ qubits, which is the number
 of qubits needed for the quantum spanner algorithm and the repeated
 Grover search. In addition a QRAM <sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> of $\tilde{O}(n/\varepsilon^2)$
 bits is required since the classical space complexity is dominated by
-the output size, i.e. the size of the graph.</p><p>It is possible to simulate the random strings in [Algorithm
-<a href=#alg:quantum-sparsify>[alg:quantum-sparsify]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-sparsify&rdquo;}](#alg:quantum-sparsify) with
+the output size, i.e. the size of the graph.</p><p>It is possible to simulate the random strings in <span class=autoref>quantum-sparsify</span> with
 $k$-independent hash functions, and hence improve the classical space
 complexity from $\tilde{O}(n/\varepsilon^2)$ to
 $\tilde{O}(\sqrt{mn}/\varepsilon^2)$.</p><p>Considering the efficiently computable search function
@@ -591,7 +575,7 @@ diagonal matrix such that $(W)_{ii} = \omega_{e_i}$, and $Q$ a random $\pm
 1/\sqrt k$ matrix (i.e., independent Bernoulli entries). Consequently, thanks
 to , the matrix $Z$ helps $\varepsilon$-approximate the effective resistance
 between any edge $e = (s,t)$ of the initial graph.</p><p>The proof of the existence of such a $Z$ matrix allows one to
-efficiently create an oracle for the quantum algorithm.</p><h4 id=th:app-resistance-oracle class=theorem>Theorem</h4><h5 id=sparsification-with-approximate-resistances-hahahugoshortcode-s21-hbhb>Sparsification with approximate resistances
+efficiently create an oracle for the quantum algorithm.</p><h4 id=th:app-resistance-oracle class=theorem>Theorem</h4><h5 id=sparsification-with-approximate-resistances-hahahugoshortcode-s22-hbhb>Sparsification with approximate resistances
 <span class=hugo-cite-intext itemprop=citation>(<span class=hugo-cite-group>
 <a href=#spielman_graph_2011><span class=visually-hidden>Citation: </span><span itemprop=author itemscope itemtype=https://schema.org/Person><meta itemprop=givenName content="Daniel A."><span itemprop=familyName>Spielman</span></span> & <span itemprop=author itemscope itemtype=https://schema.org/Person><meta itemprop=givenName content="Nikhil"><span itemprop=familyName>Srivastava</span></span>, <span itemprop=datePublished>2011</span></a><span class=hugo-cite-citation>
 <span itemscope itemtype=https://schema.org/Article data-type=article><span itemprop=author itemscope itemtype=https://schema.org/Person><span itemprop=familyName>Spielman</span>, <meta itemprop=givenName content="Daniel A.">D.</span> & <span itemprop=author itemscope itemtype=https://schema.org/Person><span itemprop=familyName>Srivastava</span>, <meta itemprop=givenName content="Nikhil">N.</span>
@@ -634,12 +618,10 @@ should be taken proportional to
 $w_e \tilde{R_e} \log (n) / \varepsilon^2$.</p><p>In order to keep a satisfying approximation of the weights ${w_e}$ in
 the sparsifier, we want to keep unchanged the expectation value of the
 weight of each edge. Hence<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>, every weight $w_e$ is re-scaled by
-$1/p_e$ i.e., $\tilde{w_e} = \frac{w_e}{p_e}$.</p><h3 id=edge-sampling>Edge sampling</h3><p>Classically, [Algorithm
-<a href=#alg:classical-edge-sampling>[alg:classical-edge-sampling]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:classical-edge-sampling&rdquo;}](#alg:classical-edge-sampling)
+$1/p_e$ i.e., $\tilde{w_e} = \frac{w_e}{p_e}$.</p><h3 id=edge-sampling>Edge sampling</h3><p>Classically, <span class=autoref>edge-sampling</span>
 shows how one can sample a subset of edges that contains every edge $e$
 independently with probability $p_e$, in time
-$\tilde{O}(m + \sum_e p_e)$.</p><pre class=algorithm>
+$\tilde{O}(m + \sum_e p_e)$.</p><pre class=algorithm id=edge-sampling>
 \begin{algorithm}
 \caption{\textbf{ClassicalEdgeSampling}($G,\epsilon$)}
 \begin{algorithmic}
@@ -659,14 +641,12 @@ $h_r(e,p_e)=0$ otherwise. From this, it is possible to construct the
 following oracle
 $$O_s : \ket{e} \ket{v} \ket{w} \longmapsto \ket{e} \ket{v \oplus p_e} \ket{w \oplus h_r(e,p_e)} \ .$$</p><p>Due to the fact that the expected number of edges $e$ for which
 $h_r(e,p_e)=1$ is $\sum_e p_e$, a repeated Grover search finds the
-desired edges in time $\tilde{O}(\sqrt{m \sum_e p_e})$.</p><h3 id=refined-quantum-sparsification-algorithm>Refined quantum sparsification algorithm</h3><p>The runtime of [Algorithm
-<a href=#alg:quantum-sparsify>[alg:quantum-sparsify]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-sparsify&rdquo;}](#alg:quantum-sparsify) can be
+desired edges in time $\tilde{O}(\sqrt{m \sum_e p_e})$.</p><h3 id=refined-quantum-sparsification-algorithm>Refined quantum sparsification algorithm</h3><p>The runtime of <span class=autoref>quantum-sparsify</span> can be
 improved to $\tilde{O}(\sqrt{mn}/\varepsilon)$ by creating a first
 "rough" $\varepsilon$-sparsifier $H$, estimating the effective
 resistances of $G$ from $H$ using Laplacian solving, and then using
 quantum sampling in order to sample a subset containing
-$\tilde{O}(n/\varepsilon^2)$ edges.</p><pre class=algorithm>
+$\tilde{O}(n/\varepsilon^2)$ edges.</p><pre class=algorithm id=refined-quantum-sparsify>
 \begin{algorithm}
 \caption{\textbf{RefinedQuantumSparsify}($G,\epsilon$)}
 \begin{algorithmic}
@@ -679,9 +659,7 @@ $\tilde{O}(n/\varepsilon^2)$ edges.</p><pre class=algorithm>
         min(1,Cw_e\tilde{R_e}\log(n)/\epsilon^2)$}
 \end{algorithmic}
 \end{algorithm}
-</pre><p>The Step 1 of [Algorithm
-<a href=#alg:quantum-sparsify2>[alg:quantum-sparsify2]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-sparsify2&rdquo;}](#alg:quantum-sparsify2) requires for
+</pre><p>The Step 1 of <span class=autoref>refined-quantum-sparsify</span> requires for
 $\tilde{O}(\sqrt{mn})$ to construct the $1/100$-spectral sparsifier $H$,
 in which each edge $e$ is such that its effective resistance $R_e^H$
 satisfies $$(1-1/100) R^G_e \leq R^H_e \leq (1+1/100) R^G_e\ .$$
@@ -717,11 +695,9 @@ as claimed by . According to that, one can abort the algorithm as soon
 as the runtime exceeds $\tilde{O}(\sqrt{mn}/\varepsilon)$ and start
 again, yielding a runtime of
 $\tilde{O}(2 \sqrt{mn}/\varepsilon) = \tilde{O}(\sqrt{mn}/\varepsilon)$
-in the worst case.<br>The total runtime of [Algorithm
-<a href=#alg:quantum-sparsify2>[alg:quantum-sparsify2]</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;alg:quantum-sparsify2&rdquo;}](#alg:quantum-sparsify2) is the sum
+in the worst case.<br>The total runtime of <span class=autoref>refined-quantum-sparsify</span> is the sum
 of the runtimes of the three steps and it is therefore
-$\tilde{O}(\sqrt{mn})$.</p><p>::: {#th:raf-spectral-sparisifaction .theorem}</p><h4 id=theorem-1>Theorem</h4><h5 id=quantum-spectral-sparsification-1>Quantum Spectral Sparsification</h5><p><strong>RefinedQuantumSparsify</strong>($G$,$\varepsilon)$ returns with high
+$\tilde{O}(\sqrt{mn})$.</p><h4 id=theorem-1>Theorem</h4><h5 id=quantum-spectral-sparsification-1>Quantum Spectral Sparsification</h5><p><strong>RefinedQuantumSparsify</strong>($G$,$\varepsilon)$ returns with high
 probability an $\varepsilon$-spectral sparsifier $H$ with
 $\tilde{O}(n/\varepsilon^2)$ edges, and has runtime
 $\tilde{O}(\sqrt{mn}/\varepsilon)$. The algorithm uses $O(\log, n)$
@@ -761,9 +737,9 @@ the input and output registers are composed of qubits rather than bits.
 Thus, the quantum computer can address memory in superposition meaning
 that a superposition of inputs returns a superposition of outputs, so
 that one can design the following quantum unitary
-$$\sum_j \lambda_j \ket{j}<em>{in} \ket{0}</em>{out} \ \xrightarrow{QRAM \ access} \ \sum_j \lambda_j \ket{j}<em>{in} \ket{v_j}</em>{out} \ \ ,$$
+$$\sum_j \lambda_j |j\rangle_{in} |0\rangle_{out} \xrightarrow{QRAM \ access}\ \ \sum_j \lambda_j |j\rangle_{in} |v_j\rangle_{out}$$
 where $in$, $out$ represent respectively the <em>input</em> and the <em>output</em>
-registers and $v_j$ the value contained in the $j-th$ register. Hence, a
+registers and $v_j$ the value contained in the $j^{th}$ register. Hence, a
 reading operation corresponds to a quantum query to the classical bits
 stored in the memory array, whereas the operation of writing a bit in
 the QRAM stays classical.<br>Within this computational model, the complexity of an algorithm can have
@@ -887,7 +863,7 @@ $\mathbb{E}(\tilde{W}) = p_e \tilde{w_e} + (1-p_e) \times 0 = p_e \tilde{w_e}$.&
 <a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
 <span class=copyright-year>&copy;
 2022<span> |</span>
-<span>Hugo Thomas</span></span></div><script>pseudocode.renderClass("algorithm",{lineNumber:!0,noEnd:!0}),referenceFigures()</script></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<span>Hugo Thomas</span></span></div><script>pseudocode.renderClass("algorithm",{lineNumber:!0,noEnd:!0}),makeReferences()</script></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
 <script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
 <script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script>
 <script type=text/javascript src=/js/main.min.191509a5c8442abdb6eb5020a332fd59bdd83a7e78a2d2241108df9113504292.js></script>
