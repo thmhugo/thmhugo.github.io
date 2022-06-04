@@ -509,19 +509,19 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e' =
 \begin{algorithmic}
 \REQUIRE $\forall e, \; w_e' = w_e$ and $l=\lceil \log\frac mn \rceil$
 \REQUIRE $\forall i\in[\log(m/n)], \; r_i \in \{0,1\}^m$, \Comment{A family of
-random strings such that all bits are independent and equal to 1 w.p. $\frac{1}{4}$.}
+random strings such that all bits are independent and equal to 1 w.p. $\frac {1}{4}$.}
 % \ENSURE $\tilde{G}$ is an $\epsilon$-spectral sparsifier  of $G$ with $\tilde{O}(n/\epsilon^2)$ edges.
-\FOR{$i = 1,2,...,l$}
-    \STATE \textit{create $H_i$, union of an $O(\frac{\log^2 n}{\epsilon ^2})$-packing of
-            spanners of $G' = (V,E,w')$}
-    \FORALL{$e \notin H_i$}
-        \IF{$r_i(e) = 1$}
-            \STATE $w_e' \leftarrow 4\,w_e'$
-        \ELSE
-            \STATE $w_e' \leftarrow 0$
-        \ENDIF
-    \ENDFOR
-\ENDFOR
+\For{$i = 1,2,...,l$}
+\STATE \textit{create $H_i$, union of an $O(\frac{\log^2 n}{\epsilon ^2})$-packing of
+        spanners of $G' = (V,E,w')$}
+\ForAll{$e \notin H_i$}
+\If{$r_i(e) = 1$}
+\STATE $w_e' \leftarrow 4\,w_e'$
+\Else
+\STATE $w_e' \leftarrow 0$
+\EndIf
+\EndFor
+\EndFor
 \STATE \textit{use repeated Grover search to find $\tilde{E} = \{ e \in E | w_e^{'} > 0\}$ the edges of $\tilde{G}$ }
 \STATE \RETURN $\tilde{G}$
 \end{algorithmic}
