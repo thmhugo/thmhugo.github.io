@@ -128,7 +128,7 @@ increasing. Models have been made: cucumber growth [@cucumber],
 sunflower [@TheAB], barley [@barley], sorghum [@sorghum].
 
 
-<div class="fig-table-container">
+<div class="figure-table-container">
     <div class="figtbl">
         <div class="">
             <img src="img/r-tree-1.png" alt="Snow" >
@@ -187,7 +187,7 @@ upper-bound, since the rule $a\rightarrow
 I[L]A$ is blocking.
 
 
-<div class="fig-table-container">
+<div class="figure-table-container">
     <div class="figtbl">
         <div class="">
             <img src="img/f-1.png" alt="random tree 1" >

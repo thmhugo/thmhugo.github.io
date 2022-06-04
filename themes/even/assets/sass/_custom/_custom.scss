@@ -54,11 +54,11 @@ h5+p:before {
     counter-increment: figures;
 }
 
-.fig-table-container p em {
+.figure-table-container p em {
     content: "Figure " counter(figures) " : ";
 }
 
-.fig-table-container {
+.figure-table-container {
     text-align: center;
 }
 
