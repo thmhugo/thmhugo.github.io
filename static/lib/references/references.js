@@ -8,20 +8,54 @@ function createLink(title, id) {
     return link;
 }
 
-function referenceFigures() {
-    var toRef = document.getElementsByClassName("autoref");
-    var allCaptionedFigures = document.getElementsByClassName("caption");
-    var figureNumbers = {};
+function indexFigures(figures) {
+    figureNumbers = {};
+    for (var i = 0; i < figures.length; i++) {
+        figureNumbers[figures[i].id] = i + 1;
+    }
+    return figureNumbers;
+}
 
-    for (var i = 0; i < allCaptionedFigures.length; i++) {
-        figureNumbers[allCaptionedFigures[i].id] = i + 1;
+function indexAlgorithms(algorithms) {
+    var algorithmsLabels = {};
+
+    for (var algo of algorithms)
+    {
+        if (algo.id !== "") // Just the labeled (with an id) ones
+        {
+            algorithmsLabels[algo.id] = algo.getElementsByClassName("ps-keyword")[0].innerHTML;
+        }
     }
 
+    return algorithmsLabels;
+}
+
+function makeReferences() {
+    var toRef = document.getElementsByClassName("autoref");
+    var allCaptionedFigures = document.getElementsByClassName("caption");
+    var allCaptionedAlgorithms = document.getElementsByClassName("ps-root");
+
+
+    var figureNumbers = indexFigures(allCaptionedFigures);
+    var algorithmsLabels = indexAlgorithms(allCaptionedAlgorithms);
+
     const l = toRef.length;
+
     for (var i = 0; i < l; i++) {
         var ref = toRef[0]; // Sucks but replaceWith consumes the array toRef.
-        const figureId = ref.outerText;
-        const title = "Figure " + figureNumbers[figureId];
-        ref.replaceWith(createLink(title, figureId));
+
+        const id = ref.outerText;
+        var parent = document.getElementById(id).parentNode;
+
+        if (parent.classList.contains("figure"))
+        {
+            const title = "Figure " + figureNumbers[id];
+            ref.replaceWith(createLink(title, id));
+        }
+        else
+        {
+            const title = algorithmsLabels[id];
+            ref.replaceWith(createLink(title, id));
+        }
     }
 }

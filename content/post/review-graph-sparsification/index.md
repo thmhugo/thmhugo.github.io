@@ -204,7 +204,8 @@ n$-spanners. Furthermore, key objects of the algorithm for graph
 $\varepsilon$-spectral sparsification described below are $r$-packings
 spanners.
 
-#### Definition
+#### Definition {#rPackingSpanner}
+##### $r$-packing spanner
 Let $G$ be a graph, an $r$-packings spanner of $G$ is an ordered set $H=(H_1,
 \cdots, H_r)$ of $r$ edge-disjoint subgraphs of $G$ such that $H_i$ is a spanner
 for the graph $G - \bigcup_{j=1}^{i-1} H_j$.
@@ -256,9 +257,7 @@ $\tilde{O}(\frac{m}{\varepsilon^2})$.
 
 Apers and de Wolf propose a quantum analog to the sparsificationalgorithm described in . They build on results from classical and
 quantum algorithms, in particular the classical algorithm for
-sparsification by Koutis and Xu ([Algorithm
-[\[alg:classical-sparsify\]](#alg:classical-sparsify){reference-type="ref"
-reference="alg:classical-sparsify"}](#alg:classical-sparsify)), the
+sparsification by Koutis and Xu <span class="autoref">cs</span>, the
 spanner algorithm by {{< cite Thorup_Zwick_2005 >}}, the
 quantum algorithm for single-source shortest-path trees by
 {{< cite Durr_Heiligman_2006 >}}, and an efficient
@@ -330,8 +329,7 @@ i.e., $j$ and $i'$ have the same type.
 
 Let $P_L$ be a subset of nodes and $E(P_L)$ the set of edges such that
 $\forall (u,v) \in E(P_L)$, $u \in P_L \text{ or } v \in P_L$. In
-[Algorithm [\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
-reference="alg:quantum_spt"}](#alg:quantum_spt), the functions $f$ and
+<span class="autoref">qspt</span>, the functions $f$ and
 $g$ are both defined on $E(P_L)$, in such a way that $g((u,v)) = v$ and
 $$f((u,v)) = \begin{cases}
         cost(u,v)=dist(u) + \frac{1}{w(u,v)} & \text{if } u\in P_L,\, v\notin T \\\\\\
@@ -373,9 +371,7 @@ brief explanation follows.
 \end{algorithm}
 </pre>
 
-In [Algorithm
-[\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
-reference="alg:quantum_spt"}](#alg:quantum_spt), a set of $L$ partitions
+In <span class="autoref">qspt</span>, a set of $L$ partitions
 $\{P_l\}_{l=1}^L$ of the vertices covered by the shortest path tree
 $\mathcal T$ is generated, and the algorithm stops only when
 $\mathcal T$ covers the connected component of $v_0$.
@@ -393,7 +389,7 @@ effectively selected, thus the correctness of the algorithm (see
 {{< cite apers_quantum_2019 >}} Appendix A, Proposition 5}). As a side note, at
 each step $V_{\mathcal{T}}$ contains the growing tree.
 
-<pre class="algorithm">
+<pre class="algorithm" id="quantum-spanner">
 \begin{algorithm}
 \caption{\textbf{QuantumSpanner$(G=(V,E), k)$}}
 \begin{algorithmic}
@@ -413,16 +409,12 @@ each step $V_{\mathcal{T}}$ contains the growing tree.
 \end{algorithm}
 </pre>
 #### Theorem {#thm:comp-spt}
-In the worst case, [Algorithm
-[\[alg:quantum_spt\]](#alg:quantum_spt){reference-type="ref"
-reference="alg:quantum_spt"}](#alg:quantum_spt) returns a shortest path tree
+In the worst case, <span class="autoref">qspt</span> returns a shortest path tree
 covering the graph $G=(V,E)$ in time $\tilde{O}(\sqrt{mn})$.*
 
 More precisely, the running time depends on the size of the connected
 component in which the starting node $v_0$ is. Taking into account , one
-can conclude on the overall time complexity of [Algorithm
-[\[alg:quantum-spanner\]](#alg:quantum-spanner){reference-type="ref"
-reference="alg:quantum-spanner"}](#alg:quantum-spanner).
+can conclude on the overall time complexity of <span class="autoref">quantum-spanner</span>.
 
 #### Theorem {#thmqSpanner}
 There exists a quantum algorithm that outputs in time $\tilde{O}(k n^{1/k}
@@ -448,9 +440,7 @@ $\frac m2\in O(n^2)$ edges (see e.g., ).
 Apers and de Wolf address this issue by constructing a random string
 $r \in \{0,1\}^{m}$ encoding the discarded edges at some iteration with
 0-valued bits, and later implicitly setting the corresponding weights in
-the graph to 0, as shown in [Algorithm
-[\[alg:quantum-sparsify\]](#alg:quantum-sparsify){reference-type="ref"
-reference="alg:quantum-sparsify"}](#alg:quantum-sparsify). This enables
+the graph to 0, as shown in <span class="autoref">quantum-sparsify</span>. This enables
 the construction of a spanner in the remaining graph. One can then use a
 Grover search to the undiscarded $\tilde{O}(n/\varepsilon^{2})$ edges,
 whose union forms the spectral sparsifier. In addition, it is possible
@@ -504,7 +494,7 @@ edge $e$ is re-weighted in a different manner, so that $$\omega_e' =
     0 & \text{otherwise,}
     \end{cases}$$ where $\vee$ is the logical disjunction.
 
-<pre class="algorithm">
+<pre class="algorithm" id="quantum-sparsify">
 \begin{algorithm}
 \caption{\textbf{QuantumSparsify}($G,\epsilon$)}
 \begin{algorithmic}
@@ -537,9 +527,7 @@ $O(\frac{\log^2 n}{\varepsilon^2})$-packing of spanners select the
 order to *spectrally* preserve the graph (i.e., asserts that in the end
 it effectively $(1+\varepsilon)$-approximates the input graph). In each
 iteration, the remaining graph is classically sparsified using
-[Algorithm
-[\[alg:classical-sparsify\]](#alg:classical-sparsify){reference-type="ref"
-reference="alg:classical-sparsify"}](#alg:classical-sparsify). The
+<span class="autoref">cs</span>. The
 sparsified graph is the one induced by the vertices of the initial graph
 and the edges whose weight $w_e^{'}$ is greater than $0$.
 
@@ -561,9 +549,8 @@ follows.
 :::
 
 The overall time complexity of the algorithm depends on whether the
-$(r_i)_i$ are represented with a random string. By [Definition
-[4](#def:packing-spanner){reference-type="ref"
-reference="def:packing-spanner"}](#def:packing-spanner), the set of
+$(r_i)_i$ are represented with a random string. By
+[definition]({{< relref "#rPackingSpanner" >}}), the set of
 spanners is assumed ordered, allowing to binary search through the set
 in time $\tilde{O}(1)$, and there is $O(i)$ calls to the aforementioned
 oracle. The algorithm requires $O(\log n)$ qubits, which is the number
@@ -572,9 +559,7 @@ Grover search. In addition a QRAM [^2] of $\tilde{O}(n/\varepsilon^2)$
 bits is required since the classical space complexity is dominated by
 the output size, i.e. the size of the graph.
 
-It is possible to simulate the random strings in [Algorithm
-[\[alg:quantum-sparsify\]](#alg:quantum-sparsify){reference-type="ref"
-reference="alg:quantum-sparsify"}](#alg:quantum-sparsify) with
+It is possible to simulate the random strings in <span class="autoref">quantum-sparsify</span> with
 $k$-independent hash functions, and hence improve the classical space
 complexity from $\tilde{O}(n/\varepsilon^2)$ to
 $\tilde{O}(\sqrt{mn}/\varepsilon^2)$.
@@ -659,14 +644,12 @@ $1/p_e$ i.e., $\tilde{w_e} = \frac{w_e}{p_e}$.
 
 ### Edge sampling
 
-Classically, [Algorithm
-[\[alg:classical-edge-sampling\]](#alg:classical-edge-sampling){reference-type="ref"
-reference="alg:classical-edge-sampling"}](#alg:classical-edge-sampling)
+Classically, <span class="autoref">edge-sampling</span>
 shows how one can sample a subset of edges that contains every edge $e$
 independently with probability $p_e$, in time
 $\tilde{O}(m + \sum_e p_e)$.
 
-<pre class="algorithm">
+<pre class="algorithm" id="edge-sampling">
 \begin{algorithm}
 \caption{\textbf{ClassicalEdgeSampling}($G,\epsilon$)}
 \begin{algorithmic}
@@ -694,16 +677,14 @@ desired edges in time $\tilde{O}(\sqrt{m \sum_e p_e})$.
 
 ### Refined quantum sparsification algorithm
 
-The runtime of [Algorithm
-[\[alg:quantum-sparsify\]](#alg:quantum-sparsify){reference-type="ref"
-reference="alg:quantum-sparsify"}](#alg:quantum-sparsify) can be
+The runtime of <span class="autoref">quantum-sparsify</span> can be
 improved to $\tilde{O}(\sqrt{mn}/\varepsilon)$ by creating a first
 \"rough\" $\varepsilon$-sparsifier $H$, estimating the effective
 resistances of $G$ from $H$ using Laplacian solving, and then using
 quantum sampling in order to sample a subset containing
 $\tilde{O}(n/\varepsilon^2)$ edges.
 
-<pre class="algorithm">
+<pre class="algorithm" id="refined-quantum-sparsify">
 \begin{algorithm}
 \caption{\textbf{RefinedQuantumSparsify}($G,\epsilon$)}
 \begin{algorithmic}
@@ -718,9 +699,7 @@ $\tilde{O}(n/\varepsilon^2)$ edges.
 \end{algorithm}
 </pre>
 
-The Step 1 of [Algorithm
-[\[alg:quantum-sparsify2\]](#alg:quantum-sparsify2){reference-type="ref"
-reference="alg:quantum-sparsify2"}](#alg:quantum-sparsify2) requires for
+The Step 1 of <span class="autoref">refined-quantum-sparsify</span> requires for
 $\tilde{O}(\sqrt{mn})$ to construct the $1/100$-spectral sparsifier $H$,
 in which each edge $e$ is such that its effective resistance $R_e^H$
 satisfies $$(1-1/100) R^G_e \leq R^H_e \leq (1+1/100) R^G_e\ .$$
@@ -754,13 +733,11 @@ as the runtime exceeds $\tilde{O}(\sqrt{mn}/\varepsilon)$ and start
 again, yielding a runtime of
 $\tilde{O}(2 \sqrt{mn}/\varepsilon) = \tilde{O}(\sqrt{mn}/\varepsilon)$
 in the worst case.\
-The total runtime of [Algorithm
-[\[alg:quantum-sparsify2\]](#alg:quantum-sparsify2){reference-type="ref"
-reference="alg:quantum-sparsify2"}](#alg:quantum-sparsify2) is the sum
+The total runtime of <span class="autoref">refined-quantum-sparsify</span> is the sum
 of the runtimes of the three steps and it is therefore
 $\tilde{O}(\sqrt{mn})$.
 
-::: {#th:raf-spectral-sparisifaction .theorem}
+
 #### Theorem
 ##### Quantum Spectral Sparsification
 **RefinedQuantumSparsify**($G$,$\varepsilon)$ returns with high
@@ -790,9 +767,9 @@ the input and output registers are composed of qubits rather than bits.
 Thus, the quantum computer can address memory in superposition meaning
 that a superposition of inputs returns a superposition of outputs, so
 that one can design the following quantum unitary
-$$\sum_j \lambda_j \ket{j}_{in} \ket{0}_{out}  \ \xrightarrow{QRAM \ access} \ \sum_j \lambda_j  \ket{j}_{in} \ket{v_j}_{out}  \ \ ,$$
+$$\sum_j \lambda_j |j\rangle_{in} |0\rangle_{out}  \xrightarrow{QRAM \ access}\  \ \sum_j \lambda_j  |j\rangle_{in} |v_j\rangle_{out}$$
 where $in$, $out$ represent respectively the *input* and the *output*
-registers and $v_j$ the value contained in the $j-th$ register. Hence, a
+registers and $v_j$ the value contained in the $j^{th}$ register. Hence, a
 reading operation corresponds to a quantum query to the classical bits
 stored in the memory array, whereas the operation of writing a bit in
 the QRAM stays classical.\
