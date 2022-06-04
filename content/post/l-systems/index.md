@@ -1,16 +1,14 @@
-+++
-title = "L-systems - Computer Graphics assignment @ Sorbonne Université"
-description = "One of my project reports"
-date = "2022-04-10"
-author = "Hugo Thomas"
-bibliography= "bibliography.bib"
-+++
+---
+title : "L-systems - Computer Graphics assignment @ Sorbonne Université"
+description : "One of my project reports"
+date : 2022-04-10
+author : "Hugo Thomas"
+mathjax: true
+---
 
-<include src="../header.html"></include>
+<!-- <include src="../header.html"></include> -->
 
-
-#### Foreword:
-
+**Foreword:**
 In this short report, I will make a quick review of L-systems, relying on the
 book The algorithmic beauty of plants [@TheAB], without talking about the code
 implementation. The theoretical tools have not changed since the release of the
@@ -38,7 +36,7 @@ the characters of $s_i$ according to the production set $P$.\
 For the sake of simplicity, if $x$ and $y$ are two string in $V^\*$, then
 $xy$ is the concatenation of $x$ and $y$.
 
-#### Example: {#example .unnumbered}
+#### Example {#example .unnumbered}
 
 Let $G_1 = \langle V, \omega, P \rangle$, where
 $V = \{A,B\}; \omega = A; P =
@@ -69,19 +67,19 @@ hence draw. For example, $F$ moves forward a step $l$, $+$ turns
 clockwise the turtle of an angle $\delta$, and $-$ turns
 counterclockwise the turtle of an angle $\delta$.
 
-#### Example:
+#### Example
 
 If we let $l=1, \delta = 90$, and consider the sentence
-$FFF+FF+F+F-F-FF+FFF$, then the turtle graphics formalism yields the
+$$FFF+FF+F+F-F-FF+FFF \ ,$$ then the turtle graphics formalism yields the
 following, starting in $(0,0)$:
 
 By combining the L-System formalism and the turtle graphics, one can
 easily generate fractal like patterns, thanks to the recursive structure
-of L-systems. ($n$ is the number of iterations)
+of L-systems.
 
 <div class="figure">
 <img src="img/triangle.png" alt="Matrix vector product Mtv"/>
-<p class="caption">A triangle</p>
+<p class="caption" id="triangle">A triangle</p>
 </div>
 
 
@@ -97,14 +95,13 @@ plant-like results. This is achieved by considering a stack of turtle
 *states* and its associated operations: $\texttt{Push}$ and
 $\texttt{Pop}$. Those two operations are usually represented by the
 characters $[$ and $]$ respectively. This enhancement yield results
-shown in Fig. [\[fig:fuzzy\]](#fig:fuzzy){reference-type="ref"
-reference="fig:fuzzy"} and
-[\[fig:aglae\]](#fig:aglae){reference-type="ref" reference="fig:aglae"}.
+shown in <span class="autoref">fuzzy</span> and
+<span class="autoref">aglae</span>.
 
 
 <div class="figure">
-    <img src="img/fuzzy.png" alt="fuzzy" >
-    <p class="caption">A fuzzy tree</p>
+<img src="img/fuzzy.png" alt="fuzzy" >
+<p class="caption" id="fuzzy">A fuzzy tree</p>
 </div>
 
 The plant-like pattern appears directly, however, we will explore some
@@ -118,20 +115,17 @@ Randomizing only the turtle parameters has the effect of letting the
 underlying structure of the results unchanged, while randomizing the
 L-system itself probabilistically changes the structure, which has the
 effect of making the result more realistic. Combining the two options is
-in the end the preferable solution. Such a result is shown in Fig.
-[\[fig:randomized\]](#fig:randomized){reference-type="ref"
-reference="fig:randomized"}.
+in the end the preferable solution. Such a result is shown in <span
+class="autoref">ol_iterations</span>.
 
 <div class="figure">
     <img src="img/aglae.png" alt="aglae" >
-    <p class="caption">An aglae</p>
+    <p class="caption" id="aglae">An aglae</p>
 </div>
 
 The list of species being described by L-systems grammar is vastly
 increasing. Models have been made: cucumber growth [@cucumber],
-sunflower [@TheAB] (see Fig.
-[\[fig:sunflower\]](#fig:sunflower){reference-type="ref"
-reference="fig:sunflower"}), barley [@barley], sorghum [@sorghum].
+sunflower [@TheAB], barley [@barley], sorghum [@sorghum].
 
 
 <div class="fig-table-container">
@@ -146,27 +140,23 @@ reference="fig:sunflower"}), barley [@barley], sorghum [@sorghum].
             <img src="img/r-tree-3.png" alt="Mountains" >
         </div>
     </div>
-    <p class="caption"> Three iterations of an OL-System (a random tree) </p>
+    <p class="caption" id="ol_iterations"> Three iterations of an OL-System (a random tree) </p>
 </div>
 
 # Developmental models of herbaceous plants {#developmental-models-of-herbaceous-plants .unnumbered}
 
-In the case of self-similar structures, like trees illustrated in Fig.
-[\[fig:fuzzy\]](#fig:fuzzy){reference-type="ref" reference="fig:fuzzy"}
-[\[fig:aglae\]](#fig:aglae){reference-type="ref" reference="fig:aglae"}
-[\[fig:randomized\]](#fig:randomized){reference-type="ref"
-reference="fig:randomized"}, the synthesis methods based on rewriting
-rules, are fairly expressive and randomizing strategies fix the problem
-of unnatural regularity. However, a more general approach is needed to
-model the large variety of developmental patterns and structures found
-in nature, especially, it is not possible to obtain Fig.
-[\[fig:sunflower\]](#fig:sunflower){reference-type="ref"
-reference="fig:sunflower"} only with 0L-systems. When one observes
-nature, one sees that the flower development is, although repetitive,
-highly controlled. For instance, in most of the cases when a flower
-grows, the stem grows first, and in the end the flower appears. Partial
-L-systems offer this possibility, especially for the case of
-single-flower shoot.
+In the case of self-similar structures, like trees illustrated in <span
+class="autoref">fuzzy</span>, <span class="autoref">aglae</span> and <span
+class="autoref">ol_iterations</span> the synthesis methods based on rewriting
+rules, are fairly expressive and randomizing strategies fix the problem of
+unnatural regularity. However, a more general approach is needed to model the
+large variety of developmental patterns and structures found in nature,
+especially, it is not possible to obtain the famous sunflower only with
+0L-systems. When one observes nature, one sees that the flower development is,
+although repetitive, highly controlled. For instance, in most of the cases when
+a flower grows, the stem grows first, and in the end the flower appears. Partial
+L-systems offer this possibility, especially for the case of single-flower
+shoot.
 
 ### Partial L-systems {#partial-l-systems .unnumbered}
 
@@ -191,9 +181,8 @@ as the rule $a\rightarrow I[L]a$ is applied, and once the rule
 $a\rightarrow I[L]A$ is selected, the shot stops and the flower appears.
 It is hence possible to control the average height of the flower, by
 controlling the ratio $\frac{\alpha}{\beta}$, that can be interpreted as
-the average height of the result as shown in Fig.
-[\[fig:partial\]](#fig:partial){reference-type="ref"
-reference="fig:partial"}. Note that the number of iterations is an
+the average height of the result as shown in <span class="autoref">partial_iteration</span>.
+Note that the number of iterations is an
 upper-bound, since the rule $a\rightarrow
 I[L]A$ is blocking.
 
@@ -210,7 +199,7 @@ I[L]A$ is blocking.
             <img src="img/f-3.png" alt="random tree 3" >
         </div>
     </div>
-  <p class="caption">Three iterations of a partial LSystems </p>
+  <p class="caption" id="partial_iteration">Three iterations of a partial LSystems </p>
 </div>
 
 

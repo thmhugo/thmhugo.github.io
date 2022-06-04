@@ -8,4 +8,5 @@ docs
 .idea
 
 pseudocode.js
+misc/tikztosvg/figures
 todo.md

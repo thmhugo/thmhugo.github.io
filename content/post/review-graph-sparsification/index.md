@@ -39,7 +39,10 @@ $\omega : V \times V \rightarrow \mathbb{R}$ a weight function, with
 $|V| = n$ and $|E| = m \leq \binom{n}{2}$. $G$ is said to be undirected
 if for all $i,j \in V$ then $(i,j) \in E$ implies $(j,i) \in E$.
 
-[]{#fig:weighted-graph-example label="fig:weighted-graph-example"}
+<div class="figure">
+<img src="resources/graph.svg" alt="Example of undirected weighted graph">
+<p class="caption" id="graph-example">Example of undirected weighted graph</p>
+</div>
 
 The access to the graph are done via the *adjacency list*.
 
@@ -50,9 +53,7 @@ $n
 \times n$ matrix defined as $$L_G = D - A$$ where $D$ is the degree
 matrix and $A$ is the adjacency matrix, defined such that
 $(D)\_{ii} = \sum_j \omega(i,j)$ and $(A)_{ij} = \omega(i,j)$. The graph
-shown in Fig.
-[\[fig:weighted-graph-example\]](#fig:weighted-graph-example){reference-type="ref"
-reference="fig:weighted-graph-example"} has the following adjacency and
+shown in <span class="autoref">graph-example</span> has the following adjacency and
 degree matrices $$A = \begin{pmatrix}
         0 & 1 & 2 & 1 \\\\\\
         1 & 0 & 2 & 2 \\\\\\
