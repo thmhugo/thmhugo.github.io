@@ -1,0 +1,45 @@
+baseURL = 'https://example.org/'
+# baseURL = "https://thmhugo.github.io"
+languageCode = 'en-us'
+title = 'Hugo Thomas'
+theme = 'smol'
+
+
+# Parameters
+[params]
+    subtitle = "doing quantum stuff"
+
+# Header
+[menu]
+  [[menu.main]]
+        identifier = "research"
+        name = "Research"
+        url = "/research/"
+        weight = 1
+
+    [[menu.main]]
+        identifier = "contact"
+        name = "Contact"
+        url = "/contact/"
+        weight = 2
+
+  [[menu.main]]
+        identifier = "cv"
+        name = "CV"
+        url = "/cv/"
+        weight = 2
+
+# Footer
+  [[menu.footer]]
+        name = "Github"
+        url = "https://github.com/thmhugo"
+        weight = 1
+
+    [[menu.footer]]
+        name = "Linkedin"
+        url = "https://www.linkedin.com/in/hugo--thomas"
+        weight = 1
+
+
+[markup.goldmark.renderer]
+    unsafe = true
