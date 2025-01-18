@@ -7,5 +7,26 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/cv.pdf&#34;&gt;Download my CV.&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;p&gt;Quantum Information student at Sorbonne Université&lt;/p&gt;&#xA;&lt;h3 id=&#34;email-&#34;&gt;Email :&lt;/h3&gt;&#xA;&lt;p&gt;hugo [dot] thomas @ quandela [dot] com&lt;/p&gt;&#xA;&lt;h3 id=&#34;pgp-&#34;&gt;PGP :&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/gpg.txt&#34;&gt; 996F 44AE E75D 654A 1B75  A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:1313/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/</guid>
+      <description>&lt;h3 id=&#34;preprints&#34;&gt;Preprints&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Léo Monbroussou, Eliott Z. Mamon, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Verena Yacoub, Ulysse Chabaud, Elham Kashefi, &lt;em&gt;Towards quantum advantage with state injection&lt;/em&gt;. &lt;a href=&#34;https://arxiv.org/abs/2410.01572&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Elham Kashefi, Harold Ollivier, Ulysse Chabaud, &lt;em&gt;On the role of coherence for quantum computational advantage&lt;/em&gt;. &lt;a href=&#34;https://arxiv.org/abs/2410.07024&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em&gt;Connecting quantum circuit amplitudes and matrix permanents through polynomials&lt;/em&gt;. &lt;a href=&#34;https://arxiv.org/abs/2408.08857&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
   </channel>
 </rss>
