@@ -5,10 +5,10 @@ aliases = ["about-hugo", "contact"]
 author = "Hugo"
 +++
 
-Quantum Information student at Sorbonne Université
+<!-- Ph.D. student in quantum machine learning. -->
 
-### Email :
+### Email:
 
 hugo [dot] thomas @ quandela [dot] com
-### PGP :
+### PGP:
 <a href="/gpg.txt"> 996F 44AE E75D 654A 1B75  A1E8 2085 EDCB 6CB8 DA06 </a>
