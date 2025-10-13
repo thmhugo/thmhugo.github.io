@@ -1,10 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Hugo Thomas</title><link>https://thmhugo.github.io/</link><description>Recent content in Home on Hugo Thomas</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://thmhugo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://thmhugo.github.io/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/cv/</guid><description>&lt;p>&lt;a href="https://thmhugo.github.io/cv.pdf">Download my CV.&lt;/a>&lt;/p></description></item><item><title>Contact</title><link>https://thmhugo.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/contact/</guid><description>&lt;p>Quantum Information student at Sorbonne Université&lt;/p>
-&lt;h3 id="email-">Email :&lt;/h3>
-&lt;p>hugo [dot] thomas @ quandela [dot] com&lt;/p>
-&lt;h3 id="pgp-">PGP :&lt;/h3>
-&lt;p>&lt;a href="https://thmhugo.github.io/gpg.txt"> 996F 44AE E75D 654A 1B75 A1E8 2085 EDCB 6CB8 DA06 &lt;/a>&lt;/p></description></item><item><title>Research</title><link>https://thmhugo.github.io/research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/research/</guid><description>&lt;h3 id="preprints">Preprints&lt;/h3>
-&lt;ul>
-&lt;li>Léo Monbroussou, Eliott Z. Mamon, &lt;strong>Hugo Thomas&lt;/strong>, Verena Yacoub, Ulysse Chabaud, Elham Kashefi, &lt;em>Towards quantum advantage with state injection&lt;/em>. &lt;a href="https://arxiv.org/abs/2410.01572">arxiv&lt;/a>&lt;/li>
-&lt;li>&lt;strong>Hugo Thomas&lt;/strong>, Pierre-Emmanuel Emeriau, Elham Kashefi, Harold Ollivier, Ulysse Chabaud, &lt;em>On the role of coherence for quantum computational advantage&lt;/em>. &lt;a href="https://arxiv.org/abs/2410.07024">arxiv&lt;/a>&lt;/li>
-&lt;li>&lt;strong>Hugo Thomas&lt;/strong>, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em>Connecting quantum circuit amplitudes and matrix permanents through polynomials&lt;/em>. &lt;a href="https://arxiv.org/abs/2408.08857">arxiv&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Hugo Thomas</title><link>https://thmhugo.github.io/</link><description>Recent content in Home on Hugo Thomas</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://thmhugo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://thmhugo.github.io/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/cv/</guid><description>&lt;p&gt;&lt;a href="https://thmhugo.github.io/cv.pdf"&gt;Download my CV.&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Contact</title><link>https://thmhugo.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/contact/</guid><description>&lt;!-- Ph.D. student in quantum machine learning. --&gt;
+&lt;h3 id="email"&gt;Email:&lt;/h3&gt;
+&lt;p&gt;hugo [dot] thomas @ quandela [dot] com&lt;/p&gt;
+&lt;h3 id="pgp"&gt;PGP:&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://thmhugo.github.io/gpg.txt"&gt; 996F 44AE E75D 654A 1B75 A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt;&lt;/p&gt;</description></item><item><title>Research</title><link>https://thmhugo.github.io/research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/research/</guid><description>&lt;h3 id="published-papers"&gt;Published papers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Léo Monbroussou, Eliott Z. Mamon, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Verena Yacoub, Ulysse
+Chabaud, Elham Kashefi, &lt;em&gt;Towards quantum advantage with state injection&lt;/em&gt;.
+&lt;a href="https://doi.org/10.1103/PhysRevResearch.7.033051"&gt;Phys. Rev. Res.&lt;/a&gt;,
+&lt;a href="https://arxiv.org/abs/2410.01572"&gt;arxiv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, Elham Kashefi, Harold Ollivier,
+Ulysse Chabaud, &lt;em&gt;Role of coherence for quantum computational
+advantage&lt;/em&gt;.
+&lt;a href="https://doi.org/10.1103/1csn-x1cx"&gt;Phys. Rev. Lett.&lt;/a&gt;,
+&lt;a href="https://arxiv.org/abs/2410.07024"&gt;arxiv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="preprints"&gt;Preprints&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Ulysse Chabaud, Pierre-Emmanuel Emeriau, &lt;em&gt;Shedding light on classical shadows: learning photonic quantum states&lt;/em&gt;
+&lt;a href="https://doi.org/10.48550/arXiv.2510.07240"&gt;arxiv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em&gt;Connecting quantum
+circuit amplitudes and matrix permanents through polynomials&lt;/em&gt;.
+&lt;a href="https://arxiv.org/abs/2408.08857"&gt;arxiv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
