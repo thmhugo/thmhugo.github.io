@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Hugo Thomas</title><link>https://thmhugo.github.io/</link><description>Recent content in Home on Hugo Thomas</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://thmhugo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://thmhugo.github.io/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/cv/</guid><description>&lt;p&gt;&lt;a href="https://thmhugo.github.io/cv.pdf"&gt;Download my CV.&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Contact</title><link>https://thmhugo.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/contact/</guid><description>&lt;!-- Ph.D. student in quantum machine learning. --&gt;
 &lt;h3 id="email"&gt;Email:&lt;/h3&gt;
 &lt;p&gt;hugo [dot] thomas @ quandela [dot] com&lt;/p&gt;
-&lt;h3 id="pgp"&gt;PGP:&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://thmhugo.github.io/gpg.txt"&gt; 996F 44AE E75D 654A 1B75 A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt;&lt;/p&gt;</description></item><item><title>Research</title><link>https://thmhugo.github.io/research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/research/</guid><description>&lt;h3 id="published-papers"&gt;Published papers&lt;/h3&gt;
+&lt;!-- ### PGP:
+&lt;a href="https://thmhugo.github.io/gpg.txt"&gt; 996F 44AE E75D 654A 1B75 A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt; --&gt;</description></item><item><title>Research</title><link>https://thmhugo.github.io/research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://thmhugo.github.io/research/</guid><description>&lt;h3 id="published-papers"&gt;Published papers&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, Elham Kashefi, Harold Ollivier,
 Ulysse Chabaud, &lt;em&gt;Role of coherence for quantum computational
@@ -22,4 +22,8 @@ classical shadows: learning photonic quantum states&lt;/em&gt;.
 &lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em&gt;Connecting quantum
 circuit amplitudes and matrix permanents through polynomials&lt;/em&gt;.
 &lt;a href="https://arxiv.org/abs/2408.08857"&gt;arxiv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="software"&gt;Software&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/thmhugo/LOShadows.jl"&gt;LOShadows.jl&lt;/a&gt;: a Julia package for classical shadows in linear optics.&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>
