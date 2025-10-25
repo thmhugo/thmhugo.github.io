@@ -26,3 +26,7 @@ author = "Hugo"
 - **Hugo Thomas**, Pierre-Emmanuel Emeriau, Rawad Mezher, _Connecting quantum
   circuit amplitudes and matrix permanents through polynomials_.
   [arxiv](https://arxiv.org/abs/2408.08857)
+
+### Software
+
+- [LOShadows.jl](https://github.com/thmhugo/LOShadows.jl): a Julia package for classical shadows in linear optics.
