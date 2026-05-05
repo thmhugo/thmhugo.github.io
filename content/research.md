@@ -20,6 +20,9 @@ author = "Hugo"
 
 ### Preprints
 
+- Hela Mhiri, **Hugo Thomas**, Léo Monbroussou, Ulysse Chabaud, Zoë Holmes, Elham
+  Kashefi, _Boson sampling beyond the dilute regime: second moments and
+  anti-concentration_. [arxiv](https://doi.org/10.48550/arXiv.2604.14323)
 - **Hugo Thomas**, Ulysse Chabaud, Pierre-Emmanuel Emeriau, _Shedding light on
   classical shadows: learning photonic quantum states_.
   [arxiv](https://doi.org/10.48550/arXiv.2510.07240)
