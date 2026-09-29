@@ -19,7 +19,12 @@ author = "Hugo"
 
 
 ### Preprints
-
+- Benoit Seron, **Hugo Thomas**, Eduardo Araujo, Alex Arkhipov, Changhun Oh,
+  Leonardo Novo, _Efficient classical algorithm for estimating linear statistics
+  of Boson Sampling_. [arxiv](https://doi.org/10.48550/arXiv.2609.35447)
+- Léo Monbroussou, **Hugo Thomas**, Hela Mhiri, Zoë Holmes, Elham Kashefi,
+  _Classical simulation and model concentration in passive linear optics_. 
+  [arxiv](https://doi.org/10.48550/arXiv.2607.24728)
 - Hela Mhiri, **Hugo Thomas**, Léo Monbroussou, Ulysse Chabaud, Zoë Holmes, Elham
   Kashefi, _Boson sampling beyond the dilute regime: second moments and
   anti-concentration_. [arxiv](https://doi.org/10.48550/arXiv.2604.14323)
@@ -28,7 +33,7 @@ author = "Hugo"
   [arxiv](https://doi.org/10.48550/arXiv.2510.07240)
 - **Hugo Thomas**, Pierre-Emmanuel Emeriau, Rawad Mezher, _Connecting quantum
   circuit amplitudes and matrix permanents through polynomials_.
-  [arxiv](https://arxiv.org/abs/2408.08857)
+  [arxiv](https://doi.org/10.48550/arXiv.2408.08857)
 
 ### Software
 
