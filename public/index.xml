@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Home on Hugo Thomas</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Home on Hugo Thomas</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>http://localhost:1313/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/cv/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/cv.pdf&#34;&gt;Download my CV.&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Contact</title>
-      <link>http://localhost:1313/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/contact/</guid>
-      <description>&lt;!-- Ph.D. student in quantum machine learning. --&gt;&#xA;&lt;h3 id=&#34;email&#34;&gt;Email:&lt;/h3&gt;&#xA;&lt;p&gt;hugo [dot] thomas @ quandela [dot] com&lt;/p&gt;&#xA;&lt;!-- ### PGP:&#xA;&lt;a href=&#34;http://localhost:1313/gpg.txt&#34;&gt; 996F 44AE E75D 654A 1B75  A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt; --&gt;</description>
-    </item>
-    <item>
-      <title>Research</title>
-      <link>http://localhost:1313/research/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/</guid>
-      <description>&lt;h3 id=&#34;published-papers&#34;&gt;Published papers&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, Elham Kashefi, Harold Ollivier,&#xA;Ulysse Chabaud, &lt;em&gt;Role of coherence for quantum computational&#xA;advantage&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.1103/1csn-x1cx&#34;&gt;Phys. Rev. Lett.&lt;/a&gt;,&#xA;&lt;a href=&#34;https://arxiv.org/abs/2410.07024&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Léo Monbroussou, Eliott Z. Mamon, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Verena Yacoub, Ulysse&#xA;Chabaud, Elham Kashefi, &lt;em&gt;Towards quantum advantage with state injection&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.1103/PhysRevResearch.7.033051&#34;&gt;Phys. Rev. Res.&lt;/a&gt;,&#xA;&lt;a href=&#34;https://arxiv.org/abs/2410.01572&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;preprints&#34;&gt;Preprints&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Ulysse Chabaud, Pierre-Emmanuel Emeriau, &lt;em&gt;Shedding light on&#xA;classical shadows: learning photonic quantum states&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.48550/arXiv.2510.07240&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em&gt;Connecting quantum&#xA;circuit amplitudes and matrix permanents through polynomials&lt;/em&gt;.&#xA;&lt;a href=&#34;https://arxiv.org/abs/2408.08857&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;software&#34;&gt;Software&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/thmhugo/LOShadows.jl&#34;&gt;LOShadows.jl&lt;/a&gt;: a Julia package for classical shadows in linear optics.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Home on Hugo Thomas</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content in Home on Hugo Thomas</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>http://localhost:1313/cv/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/cv/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/cv.pdf&#34;&gt;Download my CV.&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Contact</title>
+				<link>http://localhost:1313/contact/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/contact/</guid>
+				<description>&lt;!-- Ph.D. student in quantum machine learning. --&gt;&#xA;&lt;h3 id=&#34;email&#34;&gt;Email:&lt;/h3&gt;&#xA;&lt;p&gt;hugo [dot] thomas @ quandela [dot] com&lt;/p&gt;&#xA;&lt;!-- ### PGP:&#xA;&lt;a href=&#34;http://localhost:1313/gpg.txt&#34;&gt; 996F 44AE E75D 654A 1B75  A1E8 2085 EDCB 6CB8 DA06 &lt;/a&gt; --&gt;</description>
+			</item>
+			<item>
+				<title>Research</title>
+				<link>http://localhost:1313/research/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/research/</guid>
+				<description>&lt;h3 id=&#34;published-papers&#34;&gt;Published papers&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, Elham Kashefi, Harold Ollivier,&#xA;Ulysse Chabaud, &lt;em&gt;Role of coherence for quantum computational&#xA;advantage&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.1103/1csn-x1cx&#34;&gt;Phys. Rev. Lett.&lt;/a&gt;,&#xA;&lt;a href=&#34;https://arxiv.org/abs/2410.07024&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Léo Monbroussou, Eliott Z. Mamon, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Verena Yacoub, Ulysse&#xA;Chabaud, Elham Kashefi, &lt;em&gt;Towards quantum advantage with state injection&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.1103/PhysRevResearch.7.033051&#34;&gt;Phys. Rev. Res.&lt;/a&gt;,&#xA;&lt;a href=&#34;https://arxiv.org/abs/2410.01572&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;preprints&#34;&gt;Preprints&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Benoit Seron, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Eduardo Araujo, Alex Arkhipov, Changhun Oh,&#xA;Leonardo Novo, &lt;em&gt;Efficient classical algorithm for estimating linear statistics&#xA;of Boson Sampling&lt;/em&gt;. &lt;a href=&#34;https://doi.org/10.48550/arXiv.2609.35447&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Léo Monbroussou, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Hela Mhiri, Zoë Holmes, Elham Kashefi,&#xA;&lt;em&gt;Classical simulation and model concentration in passive linear optics&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.48550/arXiv.2607.24728&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Hela Mhiri, &lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Léo Monbroussou, Ulysse Chabaud, Zoë Holmes, Elham&#xA;Kashefi, &lt;em&gt;Boson sampling beyond the dilute regime: second moments and&#xA;anti-concentration&lt;/em&gt;. &lt;a href=&#34;https://doi.org/10.48550/arXiv.2604.14323&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Ulysse Chabaud, Pierre-Emmanuel Emeriau, &lt;em&gt;Shedding light on&#xA;classical shadows: learning photonic quantum states&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.48550/arXiv.2510.07240&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo Thomas&lt;/strong&gt;, Pierre-Emmanuel Emeriau, Rawad Mezher, &lt;em&gt;Connecting quantum&#xA;circuit amplitudes and matrix permanents through polynomials&lt;/em&gt;.&#xA;&lt;a href=&#34;https://doi.org/10.48550/arXiv.2408.08857&#34;&gt;arxiv&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;software&#34;&gt;Software&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/thmhugo/LOShadows.jl&#34;&gt;LOShadows.jl&lt;/a&gt;: a Julia package for classical shadows in linear optics.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+	</channel>
 </rss>
